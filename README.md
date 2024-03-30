@@ -1,31 +1,31 @@
 ---
-Title: Hem
-Description: Affes me-sida skriven med Markdown.
+Title: MVC
+Description: README for MVC course
 ---
 
-MVC med Markdown.
+MVC - Model View Controller
 ==========================
 
-### Vem är jag?
+![MVC][id]
 
-> Jag heter Alf Tore Pettersson, och jag är en trött småbarnsförälder som hunnit fylla 37 år och arbetar heltid som gymnasielärare i matematik och fysik på en gymnasieskola i Stockholm.
+[id]: images/mvc.png "MVC"
 
-> Jag har tidigare läst masterprogrammet i teoretisk fysik vid Stockholms universitet samt avlagt lärarexamen vid samma lärosäte.
+### How to clone the repository
 
-> Jag har en sambo och en dotter som nyss fyllt 9 månader, och vi bor i ett radhus i Stockholm.
+> Go to your local directory for dbwebb courses
+```
+dbwebb selfupdate
+dbwebb clone mvc
+cd mvc
+dbwebb init
+``` 
 
-![En bild av mig][id]
+### Where to find it
 
-[id]: image/lilla_jag.png "Title"
+> Course is available at:
 
-### Vad gör jag här?
+* https://dbwebb.se/mvc
 
-> Jag började intressera mig för datorteknik och programmering som 12-åring, och läste matte/data-inriktningen på naturprogrammet när jag gick i gymnasiet. 
+> GitHub Pages for this repo are published at:
 
-> I mina studier och i mitt arbete har jag alltid kunnat använda mig av programmering för att lösa problem. 
-
->Jag har t ex skrivit bägge mina examensarbeten med programmering som hjälpmedel, (MatLAB, C och Python). 
-
->Jag har även utvecklat ett bedömningsstöd för gymnasieskolan med Python kopplat till Googles API. 
-
->Jag har även varit verksam inom IT som QA på Blockets IT-avdelning. Jag har tidigare erfarenheter av C++, C, Java, Python m.m. 
+* https://dbwebb-se.github.io/mvc
