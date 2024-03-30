@@ -1,6 +1,6 @@
 ---
 Title: MVC
-Description: README for MVC course
+Description: dbwebb course MVC
 ---
 
 MVC - Model View Controller
@@ -8,24 +8,30 @@ MVC - Model View Controller
 
 ![MVC][id]
 
-[id]: images/mvc.png "MVC"
+[id]: assets/images/mvc.png "MVC"
 
 ### How to clone the repository
 
-> Go to your local directory for dbwebb courses
-```
-dbwebb selfupdate
-dbwebb clone mvc
-cd mvc
-dbwebb init
-``` 
 
-### Where to find it
+```
+git clone https://github.com/narwhal87/mvc
+``` 
+### How to run website
+Start the built-in PHP web server:
+```
+# You are in the main directory
+php -S localhost:8888 -t public
+```
+* https://localhost:8888
+
+> should see you landing on the home route of the website.
+
+### Where to find the dbwebb course details
 
 > Course is available at:
 
 * https://dbwebb.se/mvc
 
-> GitHub Pages for this repo are published at:
+> GitHub Pages are published at:
 
 * https://dbwebb-se.github.io/mvc
