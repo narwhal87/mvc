@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Source+Sans+Pro');
+
+body {
+    margin: 0 auto;
+    max-width: 1200px;
+    background-color: skyblue;
+    font-family: 'Merriweather', sans-serif;
+    background: url('../images/background.jpg');
+    background-size: cover;
+}
+
+h1 {
+    border-bottom: 4px double #ccc;
+}
+
+header {
+    height: 200px;
+    width: 100%
+}
+
+.aside {
+    float: left;
+    width: 25%;
+    border-right: 2px solid black;
+}
+
+.main {
+    float: left;
+    width: 75%;
+    margin-left: 30px;
+}
+
+.main p {
+    width: 80%;
+}
+
+img {
+    max-height: 100px;
+}
+
+.container {
+    display: flex;
+}
+
+nav li {
+    display: inline;
+    margin: 10px;
+}
+
+li {
+    margin: 10px;
+}
