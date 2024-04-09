@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LuckyController
 {
-    // Controller class can define infinite amount of routes 
+    // Controller class can define infinite amount of routes
     #[Route('/lucky/number')]
     public function number(): Response
     {

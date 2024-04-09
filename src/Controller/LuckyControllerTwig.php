@@ -1,6 +1,7 @@
 <?php
 
-// Using (defining?) a namespace 
+// Using (defining?) a namespace
+
 namespace App\Controller;
 
 // Using Symfony base classes
@@ -8,13 +9,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-// Twig template handling in Abstract Controller base class 
+// Twig template handling in Abstract Controller base class
 class LuckyControllerTwig extends AbstractController
 {
     // Defining a route using Symfony base class Route
     #[Route("/lucky", name: "lucky_number")]
 
-    // Creating a response function using Symfony base class Response 
+    // Creating a response function using Symfony base class Response
     public function number(): Response
     {
         $number = random_int(0, 100);
