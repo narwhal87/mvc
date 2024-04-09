@@ -50,3 +50,47 @@ nav li {
 li {
     margin: 10px;
 }
+
+.pig body {
+    margin: 0 auto;
+    max-width: 800px;
+    background-color: #eee;
+    font-size: 2em;
+}
+
+.pig input {
+    font-size: 1em;
+}
+
+.pig h1 {
+    border-bottom: 4px double green;
+    text-align: center;
+}
+
+.pig .main {
+    width: 50%;
+}
+
+.die {
+    font-size: 2em;
+}
+
+.pig .flash-notice {
+    padding: 0.5em;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+.pig .flash-notice:before {
+    content: "ⓘ";
+}
+
+.pig .flash-warning {
+    padding: 0.5em;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+.pig .flash-warning:before {
+    content: "⚠";
+}
