@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card Draw{% endblock %}
+
+{% block body %}
+<div class="pig">
+    <h1>Draw a card</h1>
+    <div class="container">
+        <div class="aside"></div>
+        <div class="main card">
+
+            <p>Here is the value of the card.</p>
+
+            <ul>
+                <li>{{ card }}</li>
+                <li>{{ card2 }}</li>
+            </ul>
+
+            <p>There are {{ size }} cards left in the deck.</p>
+
+            
+
+        </div>
+    </div>
+</div>
+{% endblock %}

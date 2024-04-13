@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card{% endblock %}
+
+{% block body %}
+<div class="card">
+    <h1>Show the deck</h1>
+    <div class="container">
+        <div class="aside"></div>
+        <div class="main card">
+
+            <h3>Here are the cards of the deck.</h3>
+
+            <table>
+                <tr>
+                    {% for card in deck|slice(0,13) %}
+                    <td>{{ card }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for card in deck|slice(13,13) %}
+                    <td>{{ card }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for card in deck|slice(26,13) %}
+                    <td>{{ card }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for card in deck|slice(39,13) %}
+                    <td>{{ card }}</td>
+                    {% endfor %}
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
