@@ -94,3 +94,7 @@ li {
 .pig .flash-warning:before {
     content: "⚠";
 }
+
+.card li {
+    display: inline;
+}
