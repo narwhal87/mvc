@@ -75,26 +75,31 @@ li {
     font-size: 2em;
 }
 
-.pig .flash-notice {
+.flash-notice {
     padding: 0.5em;
     color: #004085;
     background-color: #cce5ff;
     border-color: #b8daff;
+    max-width: fit-content;
 }
-.pig .flash-notice:before {
+.flash-notice:before {
     content: "ⓘ";
 }
 
-.pig .flash-warning {
+.flash-warning {
     padding: 0.5em;
     color: #856404;
     background-color: #fff3cd;
     border-color: #ffeeba;
 }
-.pig .flash-warning:before {
+.flash-warning:before {
     content: "⚠";
 }
 
 .card li {
     display: inline;
+}
+
+.card .aside li {
+    display: block;
 }

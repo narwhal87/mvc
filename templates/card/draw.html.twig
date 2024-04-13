@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card Draw{% endblock %}
+
+{% block body %}
+<div class="pig">
+    <h1>Draw a card</h1>
+    <div class="container">
+        <div class="aside">
+            {{ include('card/aside.html.twig') }}
+        </div>
+            
+        <div class="main card">
+
+            <p>Here is the value of the card.</p>
+
+            <ul>
+                {% for card in cards %}
+                <li>{{ card.getCard() }}</li>
+                {% endfor %}
+            </ul>
+
+            <p>There are {{ size }} cards left in the deck.</p>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -6,8 +6,12 @@
 <div class="card">
     <h1>Show the deck</h1>
     <div class="container">
-        <div class="aside"></div>
+        <div class="aside">
+            {{ include('card/aside.html.twig') }}
+        </div>
         <div class="main card">
+
+            {{ include('flash.html.twig') }}
 
             <h3>Here are the cards of the deck.</h3>
 
