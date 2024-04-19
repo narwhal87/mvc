@@ -103,3 +103,49 @@ li {
 .card .aside li {
     display: block;
 }
+
+.api th, td {
+    padding: 15px;
+}
+
+.api th {
+    font-size: larger;
+}
+
+input.card {
+    border-radius: 2px;
+    background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%);
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    transition: 0.5s;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+form.api_form {
+    display: inline-block;
+    margin-inline-end: 1.0em;
+}
+
+         
+.btn-grad {
+    background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 

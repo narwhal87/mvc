@@ -36,6 +36,11 @@
                     <td>{{ card }}</td>
                     {% endfor %}
                 </tr>
+                <tr>
+                    {% for card in deck|slice(52,13) %}
+                    <td>{{ card }}</td>
+                    {% endfor %}
+                </tr>
             </table>
 
         </div>

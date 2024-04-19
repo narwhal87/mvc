@@ -6,7 +6,7 @@ namespace Narwhal\Card;
 class Card {
 
     public static $suits = ['♣', '♠', '♥', '♦'];
-    public static $ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'E'];
+    public static $ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
     protected ?string $suit;
     protected ?string $rank;
     protected ?string $card;

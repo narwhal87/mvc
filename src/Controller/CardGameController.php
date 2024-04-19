@@ -3,6 +3,7 @@
 namespace App\Controller;
 use Narwhal\Card\Card;
 use Narwhal\Card\Deck;
+use Narwhal\Card\DeckJoker;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -66,6 +67,7 @@ class CardGameController extends AbstractController
     ): Response
     {
         $deck = new Deck();
+        // $deck = new DeckJoker();
         $session->set("deck", $deck);
         $this->addFlash(
             'notice',
@@ -96,6 +98,7 @@ class CardGameController extends AbstractController
     public function testDeck(): Response
     {
         $deck = new Deck();
+        // $deck = new DeckJoker();
         $deck->flipRanksSuits();
         $cardsArr = $deck->getAsString();
         $cards = $deck->draw(40);
@@ -114,8 +117,9 @@ class CardGameController extends AbstractController
     {
         // Make sure session variable "deck" is set
         $deck = $session->get("deck");
+        $deck->sortDeck();
         $data = [
-            "deck" => $deck->getAsString()
+            "deck" => $deck->getDeckAsJSON()
         ];
 
         return $this->render('card/deck.html.twig', $data);
@@ -127,11 +131,12 @@ class CardGameController extends AbstractController
     ): Response
     {
         $deck = new Deck();
+        // $deck = new DeckJoker();
         $deck->shuffleDeck();
         $session->set("deck", $deck);
 
         $data = [
-            "deck" => $deck->getAsString()
+            "deck" => $deck->getDeckAsJSON()
         ];
 
         return $this->render('card/deck.html.twig', $data);
