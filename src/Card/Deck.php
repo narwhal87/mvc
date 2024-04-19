@@ -29,7 +29,7 @@ class Deck
         }
     }
 
-    public function getAsString(): array {
+    public function getDeckAsJSON(): array {
         $return_arr = [];
         foreach ($this->deck as &$card) {
             array_push($return_arr, $card->getCard());
@@ -63,38 +63,31 @@ class Deck
         return sizeof($this->deck);
     }
 
-    // public function add(Dice $die): void
-    // {
-    //     $this->hand[] = $die;
-    // }
+    public function sortDeck() {
+        sort($this->deck);
 
-    // public function roll(): void
-    // {
-    //     foreach ($this->hand as $die) {
-    //         $die->roll();
-    //     }
-    // }
+        for ($i = 0; $i < sizeof($this->deck) - 1; $i++) {
+            
+            $card1 = $this->deck[$i]->getCard();
+            $card2 = $this->deck[$i+1]->getCard();
+            // echo substr($card1, -1);
+            if (substr($card1, -1) === "A") {
+                if (str_contains("JQK", substr($card2, -1))) {
+                    $temp = $this->deck[$i];
+                    // echo substr($card1, -1);
+                    $this->deck[$i] = $this->deck[$i+1];
+                    $this->deck[$i+1] = $temp;
+                    $i-=2;
+                }
+            } elseif (substr($card1, -1) === "K") {
+                if (str_contains("Q", substr($card2, -1))) {
+                    $temp = $this->deck[$i];
+                    $this->deck[$i] = $this->deck[$i+1];
+                    $this->deck[$i+1] = $temp;
+                }
+            }
+            
+        }
+    }
 
-    // public function getNumberDices(): int
-    // {
-    //     return count($this->hand);
-    // }
-
-    // public function getValues(): array
-    // {
-    //     $values = [];
-    //     foreach ($this->hand as $die) {
-    //         $values[] = $die->getValue();
-    //     }
-    //     return $values;
-    // }
-
-    // public function getString(): array
-    // {
-    //     $values = [];
-    //     foreach ($this->hand as $die) {
-    //         $values[] = $die->getAsString();
-    //     }
-    //     return $values;
-    // }
 }

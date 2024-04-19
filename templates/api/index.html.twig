@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card game{% endblock %}
+
+{% block body %}
+<div class="card">
+<h1>Card game</h1>
+<div class="container">
+<div class="aside"><img src="" alt="UML will go here"></div>
+<div class="main api">
+    <table>
+        <thead>
+            <th>Route</th>
+            <th>Description</th>
+            <th>Path name</th>
+        </thead>
+        <tbody>
+            {% for route in data %}
+            <tr>
+                <td>{{route[0]}}</td>
+                <td>{{route[1]}}</td>
+                <td>{{route[2]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+
+    <form method="post" action="{{ path('api_post_shuffle') }}" class="api_form">
+        <input type="hidden" name="shuffle">
+        <input type="submit" name="do_it" value="Shuffle deck" class="card shuffle">
+    </form>
+
+    <form method="post" action="{{ path('api_post_draw') }}" class="api_form">
+        <input type="hidden" name="draw">
+        <input type="submit" name="do_it" value="Draw one card" class="card draw">
+    </form>
+
+    <form method="post" action="{{ path('api_post_draw_many') }}" class="api_form">
+        <input type="submit" name="do_it" value="Draw many cards" class="card draw_many">
+        <input type="number" name="num" min="1" max="52" value="1">
+    </form>
+</div>
+</div>
+</div>
+{% endblock %}
