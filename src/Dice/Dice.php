@@ -1,10 +1,11 @@
-<?php 
+<?php
 
 namespace Narwhal\Dice;
+
 // namespace Narwhal\Dice\Dice;
 
-class Dice {
-
+class Dice
+{
     protected ?int $value;
     // private int $lastRoll;
 
@@ -12,7 +13,8 @@ class Dice {
     //     $this->value = random_int(1, $sides);
     // }
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->value = null;
     }
 
@@ -24,7 +26,7 @@ class Dice {
 
     public function roll(): int
     {
-        $this->value = random_int(1,6);
+        $this->value = random_int(1, 6);
         return $this->value;
     }
 
@@ -49,5 +51,3 @@ class Dice {
     }
 
 }
-
-?>

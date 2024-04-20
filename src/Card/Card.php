@@ -1,20 +1,22 @@
-<?php 
+<?php
 
 namespace Narwhal\Card;
+
 // namespace Narwhal\Dice\Dice;
 
-class Card {
-
+class Card
+{
     public static $suits = ['♣', '♠', '♥', '♦'];
     public static $ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
     protected ?string $suit;
     protected ?string $rank;
     protected ?string $card;
 
-    public function __construct($suit = null, $rank = null) {
+    public function __construct($suit = null, $rank = null)
+    {
         $this->suit = $suit;
         $this->rank = $rank;
-        if ($suit === null OR $rank === null) {
+        if ($suit === null or $rank === null) {
             $this->card = null;
         } else {
             $this->card = strval($this->suit) . strval($this->rank);
@@ -46,8 +48,8 @@ class Card {
     public function createDeck()
     {
         $deck = [];
-        for ($i=0; $i<sizeof(self::$suits); $i++) {
-            for ($j=0; $j<sizeof(self::$ranks); $j++) {
+        for ($i = 0; $i < sizeof(self::$suits); $i++) {
+            for ($j = 0; $j < sizeof(self::$ranks); $j++) {
                 array_push($deck, strval(self::$suits[$i]) . strval(self::$ranks[$j]));
             }
         }
@@ -55,5 +57,3 @@ class Card {
     }
 
 }
-
-?>

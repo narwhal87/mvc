@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+
 use Narwhal\Card\Card;
 use Narwhal\Card\Deck;
 use Narwhal\Card\DeckJoker;
@@ -23,9 +24,8 @@ class CardGameController extends AbstractController
     #[Route("/session", name: "session")]
     public function homeSession(
         SessionInterface $session
-    ): Response
-    {
-        
+    ): Response {
+
         $data = [
             'session' => $session->all()
         ];
@@ -36,9 +36,8 @@ class CardGameController extends AbstractController
     #[Route("/session/delete", name: "clear_session")]
     public function clearSession(
         SessionInterface $session
-    ): Response
-    {
-        
+    ): Response {
+
         $session->clear();
         $this->addFlash(
             'notice',
@@ -51,9 +50,8 @@ class CardGameController extends AbstractController
     #[Route("/card", name: "card")]
     public function home(
         // SessionInterface $session
-    ): Response
-    {
-        
+    ): Response {
+
         $data = [
             'hello' => "This seems to work"
         ];
@@ -64,8 +62,7 @@ class CardGameController extends AbstractController
     #[Route("/card/init", name: "init_card")]
     public function initCard(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $deck = new Deck();
         // $deck = new DeckJoker();
         $session->set("deck", $deck);
@@ -113,8 +110,7 @@ class CardGameController extends AbstractController
     #[Route("/card/deck", name: "show_all_cards")]
     public function showAllCardsInDeck(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         // Make sure session variable "deck" is set
         $deck = $session->get("deck");
         $deck->sortDeck();
@@ -128,8 +124,7 @@ class CardGameController extends AbstractController
     #[Route("/card/deck/shuffle", name: "shuffle_deck")]
     public function shuffleDeck(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $deck = new Deck();
         // $deck = new DeckJoker();
         $deck->shuffleDeck();
@@ -145,8 +140,7 @@ class CardGameController extends AbstractController
     #[Route("/card/deck/draw", name: "draw_card")]
     public function drawCardFromDeck(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         // If num is larger than or equal to deck size, flash message and redirect to end route
 
         $deck = $session->get("deck");
@@ -165,10 +159,9 @@ class CardGameController extends AbstractController
     public function drawManyCards(
         int $num,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         // If num is larger than or equal to deck size, flash message and redirect to end route
-        
+
         $deck = $session->get("deck");
 
         $data = [

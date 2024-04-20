@@ -9,7 +9,8 @@ class Hand extends Deck
 {
     protected $hand = [];
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->hand = $this->deck->draw(5);
     }
 }
