@@ -1,9 +1,9 @@
 <?php
 
-namespace Narwhal\Card;
+namespace App\Card;
 
-use Narwhal\Card\Card;
-use Narwhal\Card\Deck;
+use App\Card\Card;
+use App\Card\Deck;
 
 class Hand extends Deck
 {

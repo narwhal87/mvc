@@ -1,8 +1,8 @@
 <?php
 
-namespace Narwhal\Card;
+namespace App\Card;
 
-use Narwhal\Card\Card;
+use App\Card\Card;
 
 class DeckJoker extends Deck
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Narwhal\Card;
+namespace App\Card;
 
 // namespace Narwhal\Dice\Dice;
 
@@ -54,6 +54,10 @@ class Card
             }
         }
         return $deck;
+    }
+
+    public function getRank() {
+        return $this->rank;
     }
 
 }

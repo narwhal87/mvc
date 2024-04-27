@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use Narwhal\Card\Card;
-use Narwhal\Card\Deck;
+use App\Card\Card;
+use App\Card\Deck;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;

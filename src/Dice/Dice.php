@@ -1,6 +1,6 @@
 <?php
 
-namespace Narwhal\Dice;
+namespace App\Dice;
 
 // namespace Narwhal\Dice\Dice;
 

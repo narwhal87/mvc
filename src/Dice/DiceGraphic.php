@@ -1,6 +1,6 @@
 <?php
 
-namespace Narwhal\Dice;
+namespace App\Dice;
 
 class DiceGraphic extends Dice
 {

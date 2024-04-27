@@ -1,8 +1,8 @@
 <?php
 
-namespace Narwhal\Dice;
+namespace App\Dice;
 
-use Narwhal\Dice\Dice;
+use App\Dice\Dice;
 
 class DiceHand
 {
