@@ -17,11 +17,12 @@ class JSONController extends AbstractController
     #[Route("/api", name: "api_index")]
     public function jsonAll(): Response
     {
-        $data = [
+        $data = [ // Route address, description, route name
             "/api/lucky/number" => ["/api/lucky/number", 'Offer the visitor a random number', 'lucky_number'],
             '/api/quote' => ['/api/quote', 'Deliver quote of the day', 'api_quote'],
             '/api/deck' => ['/api/deck', 'A deck of cards', 'api_deck'],
             '/api/deck/shuffle' => ['/api/deck/shuffle', 'A shuffeled of cards', 'api_get_shuffle'],
+            '/api/game' => ['/api/game', '21 Game status', 'api_game']
         ];
 
         $data = ["data" => $data];
@@ -201,6 +202,38 @@ class JSONController extends AbstractController
             'cards' => $cards,
             'size' => $deck->getSizeOfDeck()
         ];
+
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+        );
+        return $response;
+    }
+
+    #[Route("/api/game", name: "api_game", methods: ['GET'])]
+    public function jsonGame21(
+        SessionInterface $session
+    ): Response {
+        //if isset
+        $deck = $session->get("deck");
+        
+        // foreach ($session->get("cards") as $card) {
+        //     $cards[] = $card->getCard();
+        // }
+        // foreach ($session->get("bank") as $card) {
+        //     $bank[] = $card->getCard();
+        // }
+        $data = [
+            'cards' => $session->get("cards"),
+            'bank' => $session->get("bank"),
+            'player_score' => $session->get("player_score"),
+            'bank_score' => $session->get("bank_score"),
+            'finished' => $session->get('finished'),
+            'size' => null,
+        ];
+        if ($deck) {
+            $data["size"] = $deck->getSizeOfDeck();
+        }
 
         $response = new JsonResponse($data);
         $response->setEncodingOptions(
