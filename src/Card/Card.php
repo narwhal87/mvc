@@ -56,7 +56,8 @@ class Card
         return $deck;
     }
 
-    public function getRank() {
+    public function getRank()
+    {
         return $this->rank;
     }
 

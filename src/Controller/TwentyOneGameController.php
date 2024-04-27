@@ -15,9 +15,9 @@ use Symfony\VarDumper;
 
 class TwentyOneGameController extends AbstractController
 {
-
     #[Route("/game", name: "game")]
-    public function home(): Response {
+    public function home(): Response
+    {
         $data = [
             "hello" => "Welcome to Game 21!",
         ];
@@ -25,7 +25,8 @@ class TwentyOneGameController extends AbstractController
     }
 
     #[Route("/game/doc", name: "doc")]
-    public function docs(): Response {
+    public function docs(): Response
+    {
         $data = [
             "hello" => "This is the documentation route",
         ];
@@ -84,7 +85,7 @@ class TwentyOneGameController extends AbstractController
         ];
 
         return $this->render('game/game.html.twig', $data);
-        
+
     }
 
     #[Route("/game/gameplan", name: "gameplan_post", methods: "POST")]
@@ -139,7 +140,7 @@ class TwentyOneGameController extends AbstractController
             }
 
             //Set new deck and drawn cards in session
-            
+
         } elseif (array_key_exists("shuffle", $asdf)) {
             return $this->redirectToRoute('init_game');
         } elseif (array_key_exists("stop", $asdf)) {
@@ -172,7 +173,7 @@ class TwentyOneGameController extends AbstractController
                 }
                 $session->set("bank", $bank);
                 $session->set("bank_score", $sum);
-            
+
                 $sum = $session->get("bank_score");
                 if ($sum < 22 && $sum >= $session->get("player_score")) {
                     $this->addFlash(
@@ -187,10 +188,10 @@ class TwentyOneGameController extends AbstractController
                 }
             }
         }
-            //Set new session data
-            $session->set("deck", $deck);
-            $session->set("cards", $cards);
-            $session->set("asdf", $asdf);
+        //Set new session data
+        $session->set("deck", $deck);
+        $session->set("cards", $cards);
+        $session->set("asdf", $asdf);
 
         return $this->redirectToRoute('gameplan');
     }

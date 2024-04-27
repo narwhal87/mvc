@@ -45,9 +45,9 @@ class Dice
         return "[{$this->value}]";
     }
 
-    public function getLastRoll()
-    {
-        return $this->lastRoll;
-    }
+    // public function getLastRoll()
+    // {
+    //     return $this->lastRoll;
+    // }
 
 }

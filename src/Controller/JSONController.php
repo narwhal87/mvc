@@ -216,7 +216,7 @@ class JSONController extends AbstractController
     ): Response {
         //if isset
         $deck = $session->get("deck");
-        
+
         // foreach ($session->get("cards") as $card) {
         //     $cards[] = $card->getCard();
         // }

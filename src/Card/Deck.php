@@ -33,12 +33,12 @@ class Deck
 
     public function getDeckAsJSON(): array
     {
-        $return_arr = [];
+        $returnArr = [];
         foreach ($this->deck as &$card) {
-            array_push($return_arr, $card->getCard());
+            array_push($returnArr, $card->getCard());
         }
         // var_dump($return_arr);
-        return $return_arr;
+        return $returnArr;
     }
 
     public function draw(int $num = 1): array
