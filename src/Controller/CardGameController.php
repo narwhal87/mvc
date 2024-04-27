@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use Narwhal\Card\Card;
-use Narwhal\Card\Deck;
-use Narwhal\Card\DeckJoker;
+use App\Card\Card;
+use App\Card\Deck;
+use App\Card\DeckJoker;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,12 +15,6 @@ use Symfony\VarDumper;
 
 class CardGameController extends AbstractController
 {
-    // #[Route("/game/pig", name: "pig_start")]
-    // public function home(): Response
-    // {
-    //     return $this->render('pig/home.html.twig');
-    // }
-
     #[Route("/session", name: "session")]
     public function homeSession(
         SessionInterface $session

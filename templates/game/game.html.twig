@@ -1,0 +1,56 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Game 21 Gameplan{% endblock %}
+
+{% block body %}
+<div class="game">
+    <h1>Game plan 21</h1>
+    <div class="container">
+        <div class="aside">
+        
+        </div>
+            
+        <div class="main game">
+            <h3>{{ hello }}</h3>
+            <pre>Gameplan goes here</pre>
+            <h3>User drawn cards</h3>
+
+            {% for card2 in cards %}
+            <pre>{{ card2 }}</pre>
+            {% endfor %}
+            <pre>Poäng: {{ player_score }}</pre>
+            {% for message in app.flashes('alert') %}
+                <div class="flash-alert">
+                {{ message }}
+                </div>
+            {% endfor %}
+            {% for message in app.flashes('notice') %}
+                <div class="flash-notice win">
+                {{ message }}
+                </div>
+            {% endfor %}
+
+            <h3>Bank drawn cards</h3>
+            {% for card2 in bank %}
+            <pre>{{ card2 }}</pre>
+            {% endfor %}
+            <pre>Poäng: {{ bank_score }}</pre>
+            
+
+            <form method="post" action="{{ path('gameplan_post') }}" class="game_form">
+                <button class="button green" type="submit" name="draw" id="draw" value="draw">Draw a card</button>
+                <button class="button blue" type="submit" name="shuffle" id="shuffle" value="shuffle">Shuffle</button>
+                <button class="button red" type="submit" name="stop" id="stop" value="stop">Stop</button>
+            </form>
+            
+            <pre>{{ slask }}</pre>
+            
+
+            {% for argh in asdf %}
+            <pre>{{argh}}</pre>
+            {% endfor %}
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

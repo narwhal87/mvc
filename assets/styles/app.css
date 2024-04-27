@@ -3,9 +3,14 @@
 body {
     margin: 0 auto;
     max-width: 1200px;
-    background-color: skyblue;
+    background-color: rgb(238, 242, 243);
     font-family: 'Merriweather', sans-serif;
+    
+}
+
+header {
     background: url('../images/background.jpg');
+    background-repeat: no-repeat;
     background-size: cover;
 }
 
@@ -82,6 +87,13 @@ li {
     border-color: #b8daff;
     max-width: fit-content;
 }
+.flash-notice.win {
+    padding: 0.5em;
+    color: #f0f2f5;
+    background-color: #1c7e26;
+    border-color: #b8daff;
+    max-width: fit-content;
+}
 .flash-notice:before {
     content: "ⓘ";
 }
@@ -94,6 +106,16 @@ li {
 }
 .flash-warning:before {
     content: "⚠";
+}
+.flash-alert {
+    padding: 0.5em;
+    color: #f8efef;
+    background-color: #dd1111;
+    border-color: #b8daff;
+    max-width: fit-content;
+}
+.flash-alert:before {
+    content: "ⓘ";
 }
 
 .card li {
@@ -123,12 +145,12 @@ input.card {
     text-transform: uppercase;
 }
 
-form.api_form {
+form.api_form,
+form.game_form {
     display: inline-block;
     margin-inline-end: 1.0em;
 }
 
-         
 .btn-grad {
     background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%);
     margin: 10px;
@@ -141,6 +163,13 @@ form.api_form {
     box-shadow: 0 0 20px #eee;
     border-radius: 10px;
     display: block;
+    width: fit-content;
+  }
+
+  .btn-grad a {
+    text-decoration: none;
+    font-weight: bolder;
+    color: white;    
   }
 
   .btn-grad:hover {
@@ -149,3 +178,36 @@ form.api_form {
     text-decoration: none;
   }
  
+  .game pre {
+    display: inline;
+    margin-right: 5px;
+    font-size: 1.4rem;
+  }
+
+  .button.green {
+    background-image: linear-gradient(to right, #315538 0%, #26da41  51%, #315534  100%);
+    color: white;            
+  }
+
+  .button.blue {
+    background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%);
+    color: white;            
+  }
+
+  .button.red {
+    background-image: linear-gradient(to right, #553131 0%, #da2626  51%, #553131  100%);
+    color: white;            
+  }
+
+  .button {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: inline;
+    width: fit-content;
+  }

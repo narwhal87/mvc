@@ -29,12 +29,19 @@
             <h3>Vilken är din TIL för detta kmom?</h4>
             <p>MD och Twig var en blast från designkursen. Jag har inte gjort hela den så det var rent allmänt hur man arbetar med twig och MD som jag behövde fräscha upp. Roligt också att arbeta från scratch med att förväntas installera ett ramverk på rätt sätt på rätt ställe och ta allt därifrån. Man blir mer independent. Bra tanke med uppgiften!</p>
             <h2 id="kmom02">KMOM02</h2>
-            <p>Lorem ipsum</p>
-            <p>Lorem ipsum</p>
-            <p>Lorem ipsum</p>
-            <p>Lorem ipsum</p>
-            <p>Lorem ipsum</p>
-            <p>Lorem ipsum</p>
+            <h3>Förklara kort de objektorienterade konstruktionerna arv, komposition, interface och trait och hur de används i PHP.</h3>
+            <p>När en klass ärver från en annan basklass som erhåller den basklassens attribut och metoder. Konstruktorn för basklassen nås med parent::__construct(), där scope-resolution-operatorn :: ger tillgång till basklassens konstruktor. Den kan dock överlagras med klassens egen konstruktor. Arv sker när klasser har en "is-a"-relation.</p>
+            <p>Komposition handlar om att en klass består av objekt från en annan klass, dvs klasserna har en "has-a"-relation. Klassen som består av andra klassobjekt kan inte existera utan dessa klassobjekt.</p>
+            <p>Interface och trait hann jag inte läsa på om, men jag tolkade det inte heller som obligatoriskt.</p>
+            <h3>Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din koden och dina klasser?</h3>
+            <p>Efter att ha byggt applikationen Pig så kändes det ganska straightforward. Jag skapade en klass Card som har alla färger och valörer publikt i varsin lista, samt ett kort som består av en valör och en färg. Jag lät även kortets färg och valör vara varsitt attribut i Card-objektet, utifall att det skulle komma att behövas enkel tillgång till det senare.</p>
+            <p>Deck och Hand ärver från Card och Deck består av 52 (55) olika Card-objekt som hålls i en lista. Hand ärver från Deck tills vidare för att kunna ha tillgång till den aktuella kortleken enklare, men det är enkelt att ta bort då dess konstruktor är överlagrad.</p>
+            <p>Hade problem med API-delen och att dra olika antal kort. Försökt i två veckor att få till det men har inte lyckats riktigt och har inte tid att sitta fast mer, så jag gjorde ett fulhack med en route med annat namn som får hantera en POST från ett formulär på landningssidan för API, sedan görs en redirect till en route med /:num där variabeln num skickas med till path() som parameter. Tycker inte det lirade med vad jag tror man vill att vi ska göra, så jag tar gärna emot tips från rättare.</p>
+            <h3>Vilka är dina reflektioner så här långt med att jobb i Symfony med applikationskod enligt MVC?</h3>
+            <p>Jag tycker det finns en tydlig struktur, och ramverket är tacksamt att arbeta med. Lite irriterande att behöva starta om webservern mellan varje ändring av routes i alla controllers. Namespaces var också lurigt att få till i början, men verkar rulla nu. Lite oklart hur bilderna hanteras, då det finns både bilder i public/img samt i assets. Jag kan tycka att ett sätt hade räckt att göra saker på.</p>
+            <h3>Vilken är din TIL för detta kmom?</h3>
+            <p>Starta om webservern efter varje ändring i en Controller. Det är inte namespace det är fel på.</p>
+            <p>Tagga inte varje commit. Pusha inte varje commit. Skriv korta commit-meddelanden i imperativ.</p>
             <h2 id="kmom03">KMOM03</h2>
             <p>Lorem ipsum</p>
             <p>Lorem ipsum</p>
