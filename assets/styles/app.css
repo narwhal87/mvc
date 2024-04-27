@@ -43,6 +43,10 @@ img {
     max-height: 250px;
 }
 
+img.docs {
+    max-height: fit-content;
+}
+
 .container {
     display: flex;
 }

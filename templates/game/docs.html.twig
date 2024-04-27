@@ -8,11 +8,18 @@
 <div class="container">
 <div class="aside"></div>
 <div class="main 21">
-    <pre>{{ hello }}</pre>
     <h3>Documentation</h3>
+    <p>My idea is to implement a game of 21. The following are the classes I aim to use in this implementation:</p>
+    <ol>
+        <li>Card - Represents a Card object with suit and rank, among with methods returning different representations of the card object.</li>
+        <li>Deck - Represents a Deck of Card objects, with methods to draw cards.</li>
+        <li>Game - A Game object will represent the game logic, with the aim of supporting the controller class.</li>
+    </ol>
+    <p>If time allows, the Game class will be implemented in KMOM03. Otherwise in KMOM04.</p>
     <p>Below is a flowchart depicting how I want to implement the game.</p>
-    <p><img src="{{ asset('img/21_game_flowchart.drawio.png') }}" alt="Game 21 Flowchart"></p>
-    
+    <p><img src="{{ asset('img/21_game_flowchart.drawio.png') }}" alt="Game 21 Flowchart" class="docs"></p>
+    <p>Below is some pseudo code giving a more detailed idea of the implementation.</p>
+    <p><img src="{{ asset('img/PSEUDO 21 GAME MVC KMOM03.png') }}" alt="Game 21 Pseudo code" class="docs"></p>
 </div>
 </div>
 </div>

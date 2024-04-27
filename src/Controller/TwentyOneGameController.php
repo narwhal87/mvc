@@ -130,6 +130,7 @@ class TwentyOneGameController extends AbstractController
                     $session->set("player_score", $sum - 10);
                     $session->set("ace", $ace - 1);
                 } else {
+                    $session->set("finished", true);
                     $this->addFlash(
                         'alert',
                         'You got fat and lost the game! Hit Shuffle to restart!'
