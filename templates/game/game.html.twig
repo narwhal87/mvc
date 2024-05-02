@@ -1,18 +1,17 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Game 21 Gameplan{% endblock %}
+{% block title %}Game 21{% endblock %}
 
 {% block body %}
 <div class="game">
-    <h1>Game plan 21</h1>
+    <h1>Game 21</h1>
     <div class="container">
         <div class="aside">
         
         </div>
             
         <div class="main game">
-            <h3>{{ hello }}</h3>
-            <pre>Gameplan goes here</pre>
+            <p><pre>Draw cards, hit stop to check and see who wins. Hit shuffle to reboot.</pre></p>
             <h3>User drawn cards</h3>
 
             {% for card2 in cards %}
@@ -42,13 +41,6 @@
                 <button class="button blue" type="submit" name="shuffle" id="shuffle" value="shuffle">Shuffle</button>
                 <button class="button red" type="submit" name="stop" id="stop" value="stop">Stop</button>
             </form>
-            
-            <pre>{{ slask }}</pre>
-            
-
-            {% for argh in asdf %}
-            <pre>{{argh}}</pre>
-            {% endfor %}
             
         </div>
     </div>

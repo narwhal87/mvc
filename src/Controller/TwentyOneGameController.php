@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Card\Card;
 use App\Card\Deck;
 use App\Card\DeckJoker;
+use App\Card\Game;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -38,20 +39,10 @@ class TwentyOneGameController extends AbstractController
         SessionInterface $session
     ): Response {
 
-        //Initialize deck
-        $deck = new Deck();
-        // $deck = new DeckJoker();
-
-        //Initialize user hand and bank hand
-
+        //Initialize game
         //Set deck and hand in session
-        $session->set("deck", $deck);
-        $session->set("cards", []);
-        $session->set("asdf", "");
-        $session->set("bank", []);
-        $session->set("player_score", 0);
-        $session->set("bank_score", 0);
-        $session->set("finished", false);
+        $game = new Game();
+        $game->initGame($session);
 
         $this->addFlash(
             'notice',
@@ -67,18 +58,14 @@ class TwentyOneGameController extends AbstractController
     ): Response {
 
         // Get deck and drawn cards from session
-        $deck = $session->get("deck");
-        $cards = $session->get("cards");
-        $bank = $session->get("bank");
-
         //Send card data to template
         $data = [
             "hello" => "Hello and welcome!",
             "card" => "asdf",
-            "cards" => $cards,
+            "cards" => $session->get("cards"),
             "asdf" => $session->get("asdf"),
             "slask" => $session->get("slask"),
-            "bank" => $bank,
+            "bank" => $session->get("bank"),
             "player_score" => $session->get("player_score"),
             "bank_score" => $session->get("bank_score"),
             "ace" => 0,
@@ -94,10 +81,7 @@ class TwentyOneGameController extends AbstractController
         Request $request
     ): Response {
 
-        // Get deck and drawn cards from session
-        $deck = $session->get("deck");
-        $cards = $session->get("cards");
-
+        $game = new Game();
         // Fetch all form data
         $asdf = $request->request->all();
         $session->set("slask", "slask");
@@ -105,38 +89,15 @@ class TwentyOneGameController extends AbstractController
         // If shuffle, init new game
         // If stop, game logic
         if (array_key_exists("draw", $asdf)) {
+
+            $game->playerDraw($session);
             $sum = $session->get("player_score");
-
-            if ($sum < 21 && !$session->get("finished")) {
-                $newCard = $deck->draw(); //Card object
-                $newCardRank = $newCard[0]->getRank();
-                // var_dump($new_card);
-                $cards[] = $newCard[0]->getCard();
-                if (str_contains("1JQK", $newCardRank)) {
-                    $sum += 10;
-                } elseif ($newCardRank === "A") {
-                    $sum += 11;
-                    $ace = $session->get("ace");
-                    $session->set("ace", $ace + 1);
-                } else {
-                    $sum += intval($newCardRank);
-                }
-                $session->set("player_score", $sum);
-            }
-
-            // If fat
             if ($sum > 21) {
-                $ace = $session->get("ace");
-                if ($ace > 0) {
-                    $session->set("player_score", $sum - 10);
-                    $session->set("ace", $ace - 1);
-                } else {
-                    $session->set("finished", true);
-                    $this->addFlash(
-                        'alert',
-                        'You got fat and lost the game! Hit Shuffle to restart!'
-                    );
-                }
+                $session->set("finished", true);
+                $this->addFlash(
+                    'alert',
+                    'You got fat and lost the game! Hit Shuffle to restart!'
+                );
             }
 
             //Set new deck and drawn cards in session
@@ -144,53 +105,22 @@ class TwentyOneGameController extends AbstractController
         } elseif (array_key_exists("shuffle", $asdf)) {
             return $this->redirectToRoute('init_game');
         } elseif (array_key_exists("stop", $asdf)) {
-            $session->set("finished", true);
-            $bank = [];
-            $session->set("ace", 0);
-            if ($session->get("player_score") < 22 && $session->get("bank_score") == 0) {
-                $sum = 0;
-                while ($sum < 18 && $sum < $session->get("player_score")) {
-                    $newCard = $deck->draw()[0];
-                    $newCardRank = $newCard->getRank();
-                    $bank[] = $newCard->getCard();
-                    if (str_contains("1JQK", $newCardRank)) {
-                        $sum += 10;
-                    } elseif ($newCardRank === "A") {
-                        $sum += 11;
-                        $ace = $session->get("ace");
-                        $session->set("ace", $ace + 1);
-                    } else {
-                        $sum += intval($newCardRank);
-                    }
-                    if ($sum > 17) {
-                        $ace = $session->get("ace");
-                        if ($ace > 0) {
-                            $sum -= 10;
-                            $session->set("ace", $ace - 1);
-                        }
-                    }
-                    // $session->set("slask", $sum);
-                }
-                $session->set("bank", $bank);
-                $session->set("bank_score", $sum);
+            $game->bankDraw($session);
 
-                $sum = $session->get("bank_score");
-                if ($sum < 22 && $sum >= $session->get("player_score")) {
-                    $this->addFlash(
-                        'alert',
-                        'The bank won, you lost! Hit Shuffle to restart.'
-                    );
-                } else {
-                    $this->addFlash(
-                        'notice',
-                        'You won the game! Hit Shuffle to restart.'
-                    );
-                }
+            $sum = $session->get("bank_score");
+            if ($sum < 22 && $sum >= $session->get("player_score")) {
+                $this->addFlash(
+                    'alert',
+                    'The bank won, you lost! Hit Shuffle to restart.'
+                );
+            } else {
+                $this->addFlash(
+                    'notice',
+                    'You won the game! Hit Shuffle to restart.'
+                );
             }
         }
         //Set new session data
-        $session->set("deck", $deck);
-        $session->set("cards", $cards);
         $session->set("asdf", $asdf);
 
         return $this->redirectToRoute('gameplan');

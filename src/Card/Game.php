@@ -13,6 +13,7 @@ class Game
     protected ?int $playerScore;
     protected $bank = []; // Holds Card objects
     protected ?int $bankScore;
+    public ?Deck $deck;
 
     public function __construct()
     {
@@ -20,17 +21,90 @@ class Game
         $this->bankScore = 0;
     }
 
-    // public function addCardToPlayer($card)
-    // {
-    //     $this->player[] = $card;
-    //     $this->playerScore = calcSum($player);
-    // }
+    public function initGame($session)
+    {
+        $this->deck = new Deck();
+        $session->set("deck", $this->deck);
+        $session->set("cards", []);
+        $session->set("asdf", "");
+        $session->set("bank", []);
+        $session->set("player_score", 0);
+        $session->set("bank_score", 0);
+        $session->set("finished", false);
+    }
 
-    // public function addCardToBank($card)
-    // {
-    //     $this->bank[] = $card;
-    //     $this->bankScore = calcSum($bank);
-    // }
+    public function playerDraw($session)
+    {
+        $sum = $session->get("player_score");
+        $deck = $session->get("deck");
+        $cards = $session->get("cards"); //Array with player cards as str "<suit><rank>"
+
+        //If not fat
+        if ($sum < 21 && !$session->get("finished")) {
+            $newCard = $deck->draw(); //Card object
+            $newCardRank = $newCard[0]->getRank();
+            // var_dump($new_card);
+            $cards[] = $newCard[0]->getCard();
+            if (str_contains("1JQK", $newCardRank)) {
+                $sum += 10;
+            } elseif ($newCardRank === "A") {
+                $sum += 11;
+                $ace = $session->get("ace");
+                $session->set("ace", $ace + 1);
+            } else {
+                $sum += intval($newCardRank);
+            }
+            $session->set("player_score", $sum);
+        }
+
+        // If fat
+        if ($sum > 21) {
+            $ace = $session->get("ace");
+            if ($ace > 0) {
+                $session->set("player_score", $sum - 10);
+                $session->set("ace", $ace - 1);
+            }
+        }
+
+        $session->set("deck", $deck);
+        $session->set("cards", $cards);
+    }
+
+    public function bankDraw($session)
+    {
+        $deck = $session->get("deck");
+        $session->set("finished", true);
+        $bank = [];
+        $session->set("ace", 0);
+        if ($session->get("player_score") < 22 && $session->get("bank_score") == 0) {
+            $sum = 0;
+            while ($sum < 18 && $sum < $session->get("player_score")) {
+                $newCard = $deck->draw()[0];
+                $newCardRank = $newCard->getRank();
+                $bank[] = $newCard->getCard();
+                if (str_contains("1JQK", $newCardRank)) {
+                    $sum += 10;
+                } elseif ($newCardRank === "A") {
+                    $sum += 11;
+                    $ace = $session->get("ace");
+                    $session->set("ace", $ace + 1);
+                } else {
+                    $sum += intval($newCardRank);
+                }
+                if ($sum > 17) {
+                    $ace = $session->get("ace");
+                    if ($ace > 0) {
+                        $sum -= 10;
+                        $session->set("ace", $ace - 1);
+                    }
+                }
+                // $session->set("slask", $sum);
+            }
+            $session->set("deck", $deck);
+            $session->set("bank", $bank);
+            $session->set("bank_score", $sum);
+        }
+    }
 
     public function calcSum($cardArr)
     {
