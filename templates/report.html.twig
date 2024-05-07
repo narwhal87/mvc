@@ -52,12 +52,19 @@
             <h3>Vilken är din TIL för detta kmom?</h3>
             <p>Börja med flödesschema och pseudokod även i fortsättningen och ha som dokumentation. Thin, Fat and Stupid var ett bra sätt att komma ihåg controllers, models och views på.</p>
             <h2 id="kmom04">KMOM04</h2>
-            <p>Lorem ipsum</p>
-            <p>Lorem ipsum</p>
-            <p>Lorem ipsum</p>
-            <p>Lorem ipsum</p>
-            <p>Lorem ipsum</p>
-            <p>Lorem ipsum</p>
+            <h3>Berätta hur du upplevde att skriva kod som testar annan kod med PHPUnit och hur du upplever phpunit rent allmänt.</h3>
+            <p>Jag tycker PHPUnit är ett robust system. Har använt det tidigare till att skriva mindre tester och jag tycker det är enkelt att skriva tester i. Framförallt hela maskineriet med mocking är smart.</p>
+<h3>Hur väl lyckades du med kodtäckningen av din kod, lyckades du nå mer än 90% kodtäckning?</h3>
+<p>Jag verkade lyckas med sup 90% på alla klasser i slutet. Det var lite trixande med att komma in i snåriga if-satser och edge cases som vad händer om man får ett ess och en summa mer än 21? Har inte riktigt hittat dit ännu, men läste idag i dokumentationen om att det går att göra med t ex mocking och test doubles.</p>
+
+<h3>Upplever du din egen kod som “testbar kod” eller finns det delar i koden som är mer eller mindre testbar och finns det saker som kan göras för att förbättra kodens testbarhet?</h3>
+<p>Jag skrev om controllerklasserna så att logiken hamnade i en egen klass, och efter det så gick det bra att skriva testbar kod. Som sagt ovan så vill jag lära mig mer om hur jag kommer åt olika corner cases. Jag är inte riktigt där ännu, men det känns som att det borde gå genom att tvinga fram ett särskilt return value för olika metoder i koden.</p>
+<h3>Valde du att skriva om delar av din kod för att förbättra den eller göra den mer testbar, om så berätta lite hur du tänkte.</h3>
+<p>Ja, det hände åtskilliga gånger att jag fick ta bort kod som inte användes eller var relevant. I Hand-klassen fick jag till och med göra om hela konstruktorn då jag hade ett arv där som jag missat att ta hänsyn till. Annars så gjorde jag en refactoring av spellogiken till en egen Game-klass. Den bröt jag sedan ned i mindre delar enligt principen DRY.</p>
+<h3>Fundera över om du anser att testbar kod är något som kan identifiera “snygg och ren kod”.</h3>
+<p>Jag förstår inte frågan riktigt. Jag tror att testbar kod kan i ett senare skede generera snygg och ren kod, och tvingar oss att skriva på ett sätt som är mer lättöverskådligt i slutändan. Den hjälper oss att hitta svagheter i koden, om vi vill. Men den kan också låta oss vara lata med en redan lång och krånglig kod genom att låta oss verifiera att den fungerar som den ska, och inte behöver ägnas mer möda än nödvändigt om den gör det den ska. Don't fix what doesn't need fixing.</p>
+<h3>Vilken är din TIL för detta kmom?</h3>
+<p>Att linters mest är bråkiga, och att det är bra att kunna välja nivå på återkopplingen från linters. Composer är ett grymt verktyg, och även PHPUnit. Man blir triggad att skriva tester för att PHPUnit är så robust och bra.</p>
             <h2 id="kmom05">KMOM05</h2>
             <p>Lorem ipsum</p>
             <p>Lorem ipsum</p>
