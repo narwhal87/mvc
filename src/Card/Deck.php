@@ -8,6 +8,9 @@ class Deck
 {
     protected $deck = [];
 
+    /**
+     * Constructor creates a deck of Card objects
+     */
     public function __construct()
     {
         // var_dump(Card::$suits);
@@ -20,16 +23,19 @@ class Deck
         // var_dump($this->deck);
     }
 
-    public function flipRanksSuits()
-    {
-        $this->deck = [];
-        for ($i = 0; $i < sizeof(Card::$ranks); $i++) {
-            for ($j = 0; $j < sizeof(Card::$suits); $j++) {
-                $card = new Card(Card::$suits[$j], Card::$ranks[$i]);
-                array_push($this->deck, $card);
-            }
-        }
-    }
+    // /**
+    //  * Flips order of $deck array from rank order to suit order
+    //  */
+    // public function flipRanksSuits()
+    // {
+    //     $this->deck = [];
+    //     for ($i = 0; $i < sizeof(Card::$ranks); $i++) {
+    //         for ($j = 0; $j < sizeof(Card::$suits); $j++) {
+    //             $card = new Card(Card::$suits[$j], Card::$ranks[$i]);
+    //             array_push($this->deck, $card);
+    //         }
+    //     }
+    // }
 
     public function getDeckAsJSON(): array
     {
@@ -43,6 +49,7 @@ class Deck
 
     public function draw(int $num = 1): array
     {
+        // Check if deck is large enough
         $cards = [];
         if ($num === 1) {
             $randKey[] = array_rand($this->deck, $num);
@@ -50,7 +57,7 @@ class Deck
             $randKey = array_rand($this->deck, $num);
         }
         rsort($randKey);
-        var_dump($randKey);
+        // var_dump($randKey);
         for ($i = 0; $i < sizeof($randKey); $i++) {
             $cards[] = $this->deck[$randKey[$i]];
             array_splice($this->deck, $randKey[$i], 1);
@@ -69,6 +76,14 @@ class Deck
         return sizeof($this->deck);
     }
 
+    public function getDeckArray(): array
+    {
+        return $this->deck;
+    }
+
+    /**
+     * Sorts deck on suit then rank in ascending order
+     */
     public function sortDeck()
     {
         sort($this->deck);

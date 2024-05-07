@@ -11,6 +11,7 @@ class Hand extends Deck
 
     public function __construct()
     {
-        $this->hand = $this->deck->draw(5);
+        parent::__construct();
+        $this->hand = $this->draw(5);
     }
 }

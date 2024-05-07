@@ -7,22 +7,11 @@ namespace App\Dice;
 class Dice
 {
     protected ?int $value;
-    // private int $lastRoll;
-
-    // public function __construct($sides = 6) {
-    //     $this->value = random_int(1, $sides);
-    // }
 
     public function __construct()
     {
         $this->value = null;
     }
-
-    // public function roll() {
-    //     $this->value = random_int(1,6);
-    //     $this->lastRoll = $this->value;
-    //     return $this->value;
-    // }
 
     public function roll(): int
     {
@@ -44,10 +33,5 @@ class Dice
     {
         return "[{$this->value}]";
     }
-
-    // public function getLastRoll()
-    // {
-    //     return $this->lastRoll;
-    // }
 
 }

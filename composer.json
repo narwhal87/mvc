@@ -89,12 +89,14 @@
         ],
         "csfix": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src",
         "csfix:dry": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --dry-run -v",
-        "phpmd": "tools/phpmd/vendor/bin/phpmd src text cleancode,codesize,controversial,design,naming,unusedcode",
+        "phpmd": "tools/phpmd/vendor/bin/phpmd . text tools/phpmd/phpmd.xml",
         "phpstan": "tools/phpstan/vendor/bin/phpstan analyse src",
         "lint": [
             "@phpmd",
             "@phpstan"
-        ]
+        ],
+        "phpdoc": "tools/phpdoc/phpdoc --config=tools/phpdoc/phpdoc.xml",
+        "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit"
     },
     "conflict": {
         "symfony/symfony": "*"

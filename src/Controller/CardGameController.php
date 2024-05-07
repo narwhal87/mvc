@@ -68,38 +68,38 @@ class CardGameController extends AbstractController
         return $this->redirectToRoute('show_all_cards');
     }
 
-    #[Route("/card/test/draw", name: "test_draw_card")]
-    public function testDraw(): Response
-    {
-        $card = new Card();
-        $card2 = new Card('♠', 'J');
-        $deck = new Deck();
-        $deck->draw(10);
+    // #[Route("/card/test/draw", name: "test_draw_card")]
+    // public function testDraw(): Response
+    // {
+    //     $card = new Card();
+    //     $card2 = new Card('♠', 'J');
+    //     $deck = new Deck();
+    //     $deck->draw(10);
 
-        $data = [
-            "card" => $card->draw(),
-            "card2" => $card2->getCard(),
-            "size" => $deck->getSizeOfDeck()
-        ];
+    //     $data = [
+    //         "card" => $card->draw(),
+    //         "card2" => $card2->getCard(),
+    //         "size" => $deck->getSizeOfDeck()
+    //     ];
 
-        return $this->render('card/test/test_draw.html.twig', $data);
-    }
+    //     return $this->render('card/test/test_draw.html.twig', $data);
+    // }
 
-    #[Route("/card/test/deck", name: "test_deck")]
-    public function testDeck(): Response
-    {
-        $deck = new Deck();
-        // $deck = new DeckJoker();
-        $deck->flipRanksSuits();
-        $cardsArr = $deck->getAsString();
-        $cards = $deck->draw(40);
+    // #[Route("/card/test/deck", name: "test_deck")]
+    // public function testDeck(): Response
+    // {
+    //     $deck = new Deck();
+    //     // $deck = new DeckJoker();
+    //     $deck->flipRanksSuits();
+    //     $cardsArr = $deck->getAsString();
+    //     $cards = $deck->draw(40);
 
-        $data = [
-            "deck" => $deck->getAsString()
-        ];
+    //     $data = [
+    //         "deck" => $deck->getAsString()
+    //     ];
 
-        return $this->render('card/test/test_deck.html.twig', $data);
-    }
+    //     return $this->render('card/test/test_deck.html.twig', $data);
+    // }
 
     #[Route("/card/deck", name: "show_all_cards")]
     public function showAllCardsInDeck(
