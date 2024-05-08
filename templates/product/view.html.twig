@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Doctrine ORM Example{% endblock %}
+
+{% block body %}
+<div class="card">
+<h1>Doctrine ORM Example</h1>
+<div class="container">
+<div class="aside"></div>
+<div class="main doctrine">
+    <ul>
+        {% for product in products %}
+            <li style="display:block">{{ product.getName|e }} ({{ product.getId|e }}) {{ product.getValue|e }}</li>
+        {% endfor %}
+    </ul>
+</div>
+</div>
+</div>
+{% endblock %}
