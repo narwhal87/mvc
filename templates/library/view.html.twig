@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Library{% endblock %}
+
+{% block body %}
+<div class="card">
+<h1>View book details</h1>
+<div class="container">
+    <div class="aside">
+        {{ include('library/aside.html.twig') }}
+    </div>
+<div class="main library">
+    <p>{{ include('flash.html.twig') }}</p>
+    <ul>
+        {% for book in books %}
+            
+            <li style="display:block">{{ book.getTitle|e }} ({{ book.getIsbn|e }}) {{ book.getAuthor|e }} <a href="{{ path('book_by_id', {'id': book.getId}) }}">Details</a> <a href="{{ path('library_update_get', {'id': book.getId}) }}">Edit</a> <a href="{{ path('library_delete', {'id': book.getId}) }}">Delete</a></li>
+        {% endfor %}
+    </ul>
+</div>
+</div>
+</div>
+{% endblock %}

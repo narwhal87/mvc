@@ -1,12 +1,12 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Card game{% endblock %}
+{% block title %}API Routes{% endblock %}
 
 {% block body %}
 <div class="card">
-<h1>Card game</h1>
+<h1>API Routes</h1>
 <div class="container">
-<div class="aside"><img src="" alt="UML will go here"></div>
+<div class="aside"></div>
 <div class="main api">
     <table>
         <thead>
@@ -24,6 +24,11 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <h3>Library-related actions</h3>
+    <p>Example: <a href="{{ path('api_library_book', {'isbn': 123456789}) }}">Kafka on the shore</a></p>
+    
+    <h3>Card-related actions</h3>
     
 
     <form method="post" action="{{ path('api_post_shuffle') }}" class="api_form">

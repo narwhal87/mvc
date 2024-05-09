@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Library{% endblock %}
+
+{% block body %}
+<div class="card">
+<h1>View book details</h1>
+<div class="container">
+    <div class="aside">
+        {{ include('library/aside.html.twig') }}
+    </div>
+<div class="main library">
+    <ul>
+        {% for book in books %}
+            <li style="display:block">Title: {{ book.getTitle|e }}</li>
+            <li style="display:block">ISBN: {{ book.getIsbn|e }}</li>
+            <li style="display:block">Author: {{ book.getAuthor|e }}</li>
+            <li style="display:block"><img src="{{ book.getImg|e }}"></li>
+        {% endfor %}
+    </ul>
+</div>
+</div>
+</div>
+{% endblock %}

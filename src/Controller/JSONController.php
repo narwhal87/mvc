@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Entity\Library;
+use App\Repository\LibraryRepository;
 
 class JSONController extends AbstractController
 {
@@ -22,29 +24,13 @@ class JSONController extends AbstractController
             '/api/quote' => ['/api/quote', 'Deliver quote of the day', 'api_quote'],
             '/api/deck' => ['/api/deck', 'A deck of cards', 'api_deck'],
             '/api/deck/shuffle' => ['/api/deck/shuffle', 'A shuffeled of cards', 'api_get_shuffle'],
-            '/api/game' => ['/api/game', '21 Game status', 'api_game']
+            '/api/game' => ['/api/game', '21 Game status', 'api_game'],
+            '/api/library/books' => ['/api/library/books', 'library books', 'api_library_books'],
         ];
 
         $data = ["data" => $data];
 
-        // $response = new JsonResponse($data);
-        // $response->headers->set('Content-Type', 'application/json');
-        // $response->setEncodingOptions(
-        //     $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
-        // $response->getEncodingOptions() | JSON_PRETTY_PRINT
-
-        // From MVC GIT:
-
-        // $response->getEncodingOptions() ||
-        // JSON_PRETTY_PRINT ||
-        // JSON_UNESCAPED_UNICODE
-        // );
-
-        // $data2 = ["response" => $response];
-
         return $this->render('/api/index.html.twig', $data);
-
-        // return $response;
     }
 
     #[Route("/api/lucky/number", name: 'lucky_number')]
@@ -76,9 +62,9 @@ class JSONController extends AbstractController
             "You miss 100% of all the shots you do not take - Wayne Gretzky - Michael Scott"
         );
 
-        $rand_key = array_rand($quotes);
+        $randKey = array_rand($quotes);
         $data = [
-            'quote' => date('m/d/Y h:i:s a', time()) . ": " . $quotes[$rand_key]
+            'quote' => date('m/d/Y h:i:s a', time()) . ": " . $quotes[$randKey]
         ];
 
         $response = new JsonResponse($data);
@@ -156,6 +142,7 @@ class JSONController extends AbstractController
         SessionInterface $session
     ): Response {
         //if isset
+        $cards = [];
         $deck = $session->get("deck");
         foreach ($session->get("cards") as $card) {
             $cards[] = $card->getCard();
@@ -195,6 +182,7 @@ class JSONController extends AbstractController
     ): Response {
         //if isset
         $deck = $session->get("deck");
+        $cards = [];
         foreach ($session->get("cards") as $card) {
             $cards[] = $card->getCard();
         }
@@ -217,12 +205,6 @@ class JSONController extends AbstractController
         //if isset
         $deck = $session->get("deck");
 
-        // foreach ($session->get("cards") as $card) {
-        //     $cards[] = $card->getCard();
-        // }
-        // foreach ($session->get("bank") as $card) {
-        //     $bank[] = $card->getCard();
-        // }
         $data = [
             'cards' => $session->get("cards"),
             'bank' => $session->get("bank"),
@@ -238,6 +220,36 @@ class JSONController extends AbstractController
         $response = new JsonResponse($data);
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+        );
+        return $response;
+    }
+
+    #[Route("/api/library/books", name: 'api_library_books', methods: ['GET'])]
+    public function jsonLibraryBooks(
+        LibraryRepository $libraryRepository,
+    ): Response {
+        //if isset
+        $books = $libraryRepository->findAll();
+
+        $response = $this->json($books);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+    }
+
+    #[Route("/api/library/book/{isbn}", name: 'api_library_book', methods: ['GET'])]
+    public function jsonLibraryBook(
+        LibraryRepository $libraryRepository,
+        int $isbn
+    ): Response {
+        //if isset
+        $book = $libraryRepository
+            ->getBookDetails($isbn);
+
+        $response = $this->json($book);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
         return $response;
     }

@@ -53,7 +53,7 @@ class TwentyOneGameController extends AbstractController
     }
 
     #[Route("/game/gameplan", name: "gameplan", methods: "GET")]
-    public function GamePlan21GET(
+    public function gamePlan21Get(
         SessionInterface $session
     ): Response {
 
@@ -76,7 +76,7 @@ class TwentyOneGameController extends AbstractController
     }
 
     #[Route("/game/gameplan", name: "gameplan_post", methods: "POST")]
-    public function GamePlan21POST(
+    public function gamePlan21Post(
         SessionInterface $session,
         Request $request
     ): Response {

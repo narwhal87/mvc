@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Library{% endblock %}
+
+{% block body %}
+<div class="library">
+    <h1>Update existing books in the library</h1>
+    <div class="container">
+        <div class="aside">
+            {{ include('library/aside.html.twig') }}
+        </div>
+            
+        <div class="main library">
+            <p>{{ include('flash.html.twig') }}</p>
+            {% for book in books %}
+            <form method="post" action="{{ path('library_update_post', {'id': book.getId}) }}" class="lib_form">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" value="{{ book.getTitle }}"></input>
+                <label for="isbn">isbn</label>
+                <input type="number" name="isbn" id="isbn" value="{{ book.getIsbn }}"></input>
+                <label for="author">author</label>
+                <input type="text" name="author" id="author" value="{{ book.getAuthor }}"></input>
+                <label for="img">img</label>
+                <input type="text" name="img" id="img" value="{{ book.getImg }}"></input>
+                
+                
+                <button class="button green" type="submit" name="book_update" id="book_update" value="book_update">Edit book</button>
+            </form>
+            {% endfor %}
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

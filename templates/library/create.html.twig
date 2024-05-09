@@ -4,14 +4,14 @@
 
 {% block body %}
 <div class="library">
-    <h1>Library</h1>
+    <h1>Add books to the library</h1>
     <div class="container">
         <div class="aside">
-        
+            {{ include('library/aside.html.twig') }}
         </div>
             
         <div class="main library">
-            
+            <p>{{ include('flash.html.twig') }}</p>
 
             
 
@@ -26,7 +26,7 @@
                 <input type="text" name="img" id="img"></input>
                 
                 
-                <button class="button green" type="submit" name="book_create" id="book_create" value="book_create">Draw a book</button>
+                <button class="button green" type="submit" name="book_create" id="book_create" value="book_create">Add book</button>
             </form>
             
         </div>
