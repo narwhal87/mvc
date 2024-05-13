@@ -10,6 +10,14 @@ MVC - Model View Controller
 
 [id]: assets/images/mvc.png "MVC"
 
+### Scrutinizer badges
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/narwhal87/mvc/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/narwhal87/mvc/?branch=main)
+[![Code Coverage](https://scrutinizer-ci.com/g/narwhal87/mvc/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/narwhal87/mvc/?branch=main)
+[![Build Status](https://scrutinizer-ci.com/g/narwhal87/mvc/badges/build.png?b=main)](https://scrutinizer-ci.com/g/narwhal87/mvc/build-status/main)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/narwhal87/mvc/badges/code-intelligence.svg?b=main)](https://scrutinizer-ci.com/code-intelligence)
+
+
 ### How to clone the repository
 
 
