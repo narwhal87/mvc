@@ -121,7 +121,6 @@ class JSONDeckController extends AbstractController
         SessionInterface $session
     ): Response {
         //if isset
-        $num = 0;
         $deck = $session->get("deck");
         $cards = [];
         foreach ($session->get("cards") as $card) {

@@ -3,6 +3,7 @@
 namespace App\Card;
 
 use App\Card\Card;
+use \Exception;
 
 class Deck
 {
