@@ -10,6 +10,8 @@ use App\Card\Hand;
  */
 class HandTest extends TestCase {
 
+    private $hand;
+    
     protected function setUp(): void
     {
         $this->hand = new Hand();

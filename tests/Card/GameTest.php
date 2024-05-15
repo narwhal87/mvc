@@ -11,6 +11,9 @@ use Symfony\Component\HttpFoundation\Session\Session;
  */
 class GameTest extends TestCase {
     
+    private $game;
+    private $session;
+    
     protected function setUp(): void
     {
         $this->game = new Game();

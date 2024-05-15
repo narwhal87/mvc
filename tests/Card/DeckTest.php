@@ -10,6 +10,8 @@ use App\Card\Deck;
  */
 class DeckTest extends TestCase {
 
+    private $deck;
+
     protected function setUp(): void
     {
         $this->deck = new Deck();

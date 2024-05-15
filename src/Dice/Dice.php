@@ -26,7 +26,10 @@ class Dice
 
     public function getValue(): int
     {
-        return $this->value;
+        if (is_int($this->value)) {
+            return $this->value;
+        }
+        return 0;
     }
 
     public function getAsString(): string

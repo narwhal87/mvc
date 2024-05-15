@@ -125,13 +125,9 @@ class ProductController extends AbstractController
     ): Response {
         $products = $productRepository->findByMinimumValue($value);
 
-        var_dump($products);
-
         $data = [
             'products' => $products
         ];
-
-        var_dump($data);
 
         return $this->render('product/view.html.twig', $data);
     }

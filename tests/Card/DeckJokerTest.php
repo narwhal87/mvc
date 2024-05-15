@@ -10,6 +10,8 @@ use App\Card\DeckJoker;
  */
 class DeckJokerTest extends TestCase {
 
+    private $deck;
+
     protected function setUp(): void
     {
         $this->deck = new DeckJoker();
