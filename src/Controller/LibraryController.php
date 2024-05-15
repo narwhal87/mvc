@@ -85,6 +85,7 @@ class LibraryController extends AbstractController
     public function viewAllBooks(
         LibraryRepository $libraryRepository
     ): Response {
+        $books = [];
         $books = $libraryRepository->findAll();
 
         if (!$books) {

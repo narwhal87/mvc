@@ -39,9 +39,6 @@ class TwentyOneGameController extends AbstractController
     public function initCard(
         SessionInterface $session
     ): Response {
-
-        //Initialize game
-        //Set deck and hand in session
         $game = new Game();
         $game->initGame($session);
 
@@ -57,9 +54,6 @@ class TwentyOneGameController extends AbstractController
     public function gamePlan21Get(
         SessionInterface $session
     ): Response {
-
-        // Get deck and drawn cards from session
-        //Send card data to template
         $data = [
             "hello" => "Hello and welcome!",
             "card" => "asdf",
@@ -83,16 +77,13 @@ class TwentyOneGameController extends AbstractController
     ): Response {
 
         $game = new Game();
-        // Fetch all form data
         $asdf = $request->request->all();
         $session->set("slask", "slask");
-        // If draw then draw new card and render
-        // If shuffle, init new game
-        // If stop, game logic
-        if (array_key_exists("draw", $asdf)) {
-
+        
+        if (array_key_exists("draw", $asdf) && !$session->get("finished")) {
             $game->playerDraw($session);
             $sum = $session->get("player_score");
+
             if ($sum > 21) {
                 $session->set("finished", true);
                 $this->addFlash(
@@ -100,12 +91,9 @@ class TwentyOneGameController extends AbstractController
                     'You got fat and lost the game! Hit Shuffle to restart!'
                 );
             }
-
-            //Set new deck and drawn cards in session
-
         } elseif (array_key_exists("shuffle", $asdf)) {
             return $this->redirectToRoute('init_game');
-        } elseif (array_key_exists("stop", $asdf)) {
+        } elseif (array_key_exists("stop", $asdf) && !$session->get("finished")) {
             $game->bankDraw($session);
 
             $sum = $session->get("bank_score");

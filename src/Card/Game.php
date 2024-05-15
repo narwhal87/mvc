@@ -100,6 +100,8 @@ class Game
             if ($ace > 0) {
                 $session->set("player_score", $sum - 10);
                 $session->set("ace", $ace - 1);
+            } else {
+                $session->set("finished", true);
             }
         }
 

@@ -43,8 +43,14 @@ class Deck
         } else {
             $randKey = array_rand($this->deck, $num);
         }
-        rsort($randKey);
-        for ($i = 0; $i < sizeof($randKey); $i++) {
+        if (is_array($randKey)) {
+            rsort($randKey);
+        } else {
+            throw new Exception('Variable $randKey is not of type array');
+        }
+        // rsort($randKey);
+        $sizeRandKey = sizeof($randKey);
+        for ($i = 0; $i < $sizeRandKey; $i++) {
             $cards[] = $this->deck[$randKey[$i]];
             array_splice($this->deck, $randKey[$i], 1);
         }
