@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="20" assertions="49" errors="0" warnings="0" failures="0" skipped="0" time="0.030744">
+    <testsuite name="Project Test Suite" tests="20" assertions="49" errors="0" warnings="0" failures="0" skipped="0" time="0.030744">
+      <testsuite name="App\Card\CardTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/CardTest.php" tests="3" assertions="9" errors="0" warnings="0" failures="0" skipped="0" time="0.005527">
+        <testcase name="testCreateCardObjectEmpty" class="App\Card\CardTest" classname="App.Card.CardTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/CardTest.php" line="12" assertions="4" time="0.004734"/>
+        <testcase name="testCreateCardObjectFromValues" class="App\Card\CardTest" classname="App.Card.CardTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/CardTest.php" line="20" assertions="4" time="0.000629"/>
+        <testcase name="testCreateCardObjectFromValuesWrongType" class="App\Card\CardTest" classname="App.Card.CardTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/CardTest.php" line="28" assertions="1" time="0.000164"/>
+      </testsuite>
+      <testsuite name="App\Card\DeckJokerTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/DeckJokerTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.001069">
+        <testcase name="testCreateDeckJoker" class="App\Card\DeckJokerTest" classname="App.Card.DeckJokerTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/DeckJokerTest.php" line="20" assertions="1" time="0.001069"/>
+      </testsuite>
+      <testsuite name="App\Card\DeckTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/DeckTest.php" tests="8" assertions="19" errors="0" warnings="0" failures="0" skipped="0" time="0.012666">
+        <testcase name="testCreateDeck" class="App\Card\DeckTest" classname="App.Card.DeckTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/DeckTest.php" line="20" assertions="1" time="0.000307"/>
+        <testcase name="testGetSize" class="App\Card\DeckTest" classname="App.Card.DeckTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/DeckTest.php" line="24" assertions="1" time="0.000304"/>
+        <testcase name="testDeckHasCardObjects" class="App\Card\DeckTest" classname="App.Card.DeckTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/DeckTest.php" line="28" assertions="2" time="0.000589"/>
+        <testcase name="testDeckAsJSONReturnsArrayOfString" class="App\Card\DeckTest" classname="App.Card.DeckTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/DeckTest.php" line="34" assertions="2" time="0.000350"/>
+        <testcase name="testDeckDrawEmpty" class="App\Card\DeckTest" classname="App.Card.DeckTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/DeckTest.php" line="40" assertions="4" time="0.000676"/>
+        <testcase name="testDeckDrawMany" class="App\Card\DeckTest" classname="App.Card.DeckTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/DeckTest.php" line="48" assertions="4" time="0.000315"/>
+        <testcase name="testDeckShuffle" class="App\Card\DeckTest" classname="App.Card.DeckTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/DeckTest.php" line="57" assertions="3" time="0.005524"/>
+        <testcase name="testSortDeck" class="App\Card\DeckTest" classname="App.Card.DeckTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/DeckTest.php" line="65" assertions="2" time="0.004602"/>
+      </testsuite>
+      <testsuite name="App\Card\GameTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/GameTest.php" tests="6" assertions="17" errors="0" warnings="0" failures="0" skipped="0" time="0.009898">
+        <testcase name="testCreateGameObject" class="App\Card\GameTest" classname="App.Card.GameTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/GameTest.php" line="24" assertions="1" time="0.007607"/>
+        <testcase name="testGameInit" class="App\Card\GameTest" classname="App.Card.GameTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/GameTest.php" line="28" assertions="6" time="0.000666"/>
+        <testcase name="testGameGetScore" class="App\Card\GameTest" classname="App.Card.GameTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/GameTest.php" line="38" assertions="2" time="0.000336"/>
+        <testcase name="testPlayerDraw" class="App\Card\GameTest" classname="App.Card.GameTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/GameTest.php" line="43" assertions="2" time="0.000427"/>
+        <testcase name="testBankDraw" class="App\Card\GameTest" classname="App.Card.GameTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/GameTest.php" line="50" assertions="4" time="0.000497"/>
+        <testcase name="testPlayerFat" class="App\Card\GameTest" classname="App.Card.GameTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/GameTest.php" line="60" assertions="2" time="0.000364"/>
+      </testsuite>
+      <testsuite name="App\Card\HandTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/HandTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.000644">
+        <testcase name="testCreateHand" class="App\Card\HandTest" classname="App.Card.HandTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Card/HandTest.php" line="20" assertions="1" time="0.000644"/>
+      </testsuite>
+      <testsuite name="App\Dice\DiceTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Dice/DiceTest.php" tests="1" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.000940">
+        <testcase name="testCreateDice" class="App\Dice\DiceTest" classname="App.Dice.DiceTest" file="/Users/narwhal/dbwebb-kurser/mvc/me/report/tests/Dice/DiceTest.php" line="16" assertions="2" time="0.000940"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
