@@ -306,46 +306,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-JSONController.html#method_jsonQuote"
         },                {
-            "fqsen": "\\App\\Controller\\JSONController\u003A\u003AjsonGetDeck\u0028\u0029",
-            "name": "jsonGetDeck",
-            "summary": "",
-            "url": "classes/App-Controller-JSONController.html#method_jsonGetDeck"
-        },                {
-            "fqsen": "\\App\\Controller\\JSONController\u003A\u003AjsonShufflePost\u0028\u0029",
-            "name": "jsonShufflePost",
-            "summary": "",
-            "url": "classes/App-Controller-JSONController.html#method_jsonShufflePost"
-        },                {
-            "fqsen": "\\App\\Controller\\JSONController\u003A\u003AjsonShuffleGet\u0028\u0029",
-            "name": "jsonShuffleGet",
-            "summary": "",
-            "url": "classes/App-Controller-JSONController.html#method_jsonShuffleGet"
-        },                {
-            "fqsen": "\\App\\Controller\\JSONController\u003A\u003AjsonDrawPost\u0028\u0029",
-            "name": "jsonDrawPost",
-            "summary": "",
-            "url": "classes/App-Controller-JSONController.html#method_jsonDrawPost"
-        },                {
-            "fqsen": "\\App\\Controller\\JSONController\u003A\u003AjsonDrawGet\u0028\u0029",
-            "name": "jsonDrawGet",
-            "summary": "",
-            "url": "classes/App-Controller-JSONController.html#method_jsonDrawGet"
-        },                {
-            "fqsen": "\\App\\Controller\\JSONController\u003A\u003AjsonDrawManyPost\u0028\u0029",
-            "name": "jsonDrawManyPost",
-            "summary": "",
-            "url": "classes/App-Controller-JSONController.html#method_jsonDrawManyPost"
-        },                {
-            "fqsen": "\\App\\Controller\\JSONController\u003A\u003AjsonDrawManyGet\u0028\u0029",
-            "name": "jsonDrawManyGet",
-            "summary": "",
-            "url": "classes/App-Controller-JSONController.html#method_jsonDrawManyGet"
-        },                {
-            "fqsen": "\\App\\Controller\\JSONController\u003A\u003AjsonGame21\u0028\u0029",
-            "name": "jsonGame21",
-            "summary": "",
-            "url": "classes/App-Controller-JSONController.html#method_jsonGame21"
-        },                {
             "fqsen": "\\App\\Controller\\JSONController\u003A\u003AjsonLibraryBooks\u0028\u0029",
             "name": "jsonLibraryBooks",
             "summary": "",
@@ -355,6 +315,51 @@ Search.appendIndex(
             "name": "jsonLibraryBook",
             "summary": "",
             "url": "classes/App-Controller-JSONController.html#method_jsonLibraryBook"
+        },                {
+            "fqsen": "\\App\\Controller\\JSONDeckController",
+            "name": "JSONDeckController",
+            "summary": "",
+            "url": "classes/App-Controller-JSONDeckController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\JSONDeckController\u003A\u003AjsonGetDeck\u0028\u0029",
+            "name": "jsonGetDeck",
+            "summary": "",
+            "url": "classes/App-Controller-JSONDeckController.html#method_jsonGetDeck"
+        },                {
+            "fqsen": "\\App\\Controller\\JSONDeckController\u003A\u003AjsonShufflePost\u0028\u0029",
+            "name": "jsonShufflePost",
+            "summary": "",
+            "url": "classes/App-Controller-JSONDeckController.html#method_jsonShufflePost"
+        },                {
+            "fqsen": "\\App\\Controller\\JSONDeckController\u003A\u003AjsonShuffleGet\u0028\u0029",
+            "name": "jsonShuffleGet",
+            "summary": "",
+            "url": "classes/App-Controller-JSONDeckController.html#method_jsonShuffleGet"
+        },                {
+            "fqsen": "\\App\\Controller\\JSONDeckController\u003A\u003AjsonDrawPost\u0028\u0029",
+            "name": "jsonDrawPost",
+            "summary": "",
+            "url": "classes/App-Controller-JSONDeckController.html#method_jsonDrawPost"
+        },                {
+            "fqsen": "\\App\\Controller\\JSONDeckController\u003A\u003AjsonDrawGet\u0028\u0029",
+            "name": "jsonDrawGet",
+            "summary": "",
+            "url": "classes/App-Controller-JSONDeckController.html#method_jsonDrawGet"
+        },                {
+            "fqsen": "\\App\\Controller\\JSONDeckController\u003A\u003AjsonDrawManyPost\u0028\u0029",
+            "name": "jsonDrawManyPost",
+            "summary": "",
+            "url": "classes/App-Controller-JSONDeckController.html#method_jsonDrawManyPost"
+        },                {
+            "fqsen": "\\App\\Controller\\JSONDeckController\u003A\u003AjsonDrawManyGet\u0028\u0029",
+            "name": "jsonDrawManyGet",
+            "summary": "",
+            "url": "classes/App-Controller-JSONDeckController.html#method_jsonDrawManyGet"
+        },                {
+            "fqsen": "\\App\\Controller\\JSONDeckController\u003A\u003AjsonGame21\u0028\u0029",
+            "name": "jsonGame21",
+            "summary": "",
+            "url": "classes/App-Controller-JSONDeckController.html#method_jsonGame21"
         },                {
             "fqsen": "\\App\\Controller\\LibraryController",
             "name": "LibraryController",
@@ -440,6 +445,16 @@ Search.appendIndex(
             "name": "report",
             "summary": "",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_report"
+        },                {
+            "fqsen": "\\App\\Controller\\MetricsController",
+            "name": "MetricsController",
+            "summary": "",
+            "url": "classes/App-Controller-MetricsController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\MetricsController\u003A\u003Ametrics\u0028\u0029",
+            "name": "metrics",
+            "summary": "",
+            "url": "classes/App-Controller-MetricsController.html#method_metrics"
         },                {
             "fqsen": "\\App\\Controller\\ProductController",
             "name": "ProductController",
@@ -750,6 +765,26 @@ Search.appendIndex(
             "name": "getBookDetails",
             "summary": "",
             "url": "classes/App-Repository-LibraryRepository.html#method_getBookDetails"
+        },                {
+            "fqsen": "\\App\\Repository\\ProductRepository",
+            "name": "ProductRepository",
+            "summary": "",
+            "url": "classes/App-Repository-ProductRepository.html"
+        },                {
+            "fqsen": "\\App\\Repository\\ProductRepository\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Repository-ProductRepository.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Repository\\ProductRepository\u003A\u003AfindByMinimumValue\u0028\u0029",
+            "name": "findByMinimumValue",
+            "summary": "Find\u0020all\u0020producs\u0020having\u0020a\u0020value\u0020above\u0020the\u0020specified\u0020one.",
+            "url": "classes/App-Repository-ProductRepository.html#method_findByMinimumValue"
+        },                {
+            "fqsen": "\\App\\Repository\\ProductRepository\u003A\u003AfindByMinimumValue2\u0028\u0029",
+            "name": "findByMinimumValue2",
+            "summary": "Find\u0020all\u0020producs\u0020having\u0020a\u0020value\u0020above\u0020the\u0020specified\u0020one\u0020with\u0020SQL.",
+            "url": "classes/App-Repository-ProductRepository.html#method_findByMinimumValue2"
         },                {
             "fqsen": "\\",
             "name": "\\",

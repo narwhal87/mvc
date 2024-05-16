@@ -63,5 +63,12 @@
             <li>Trim JSONController if possible to decrease cyclomatic complexity and low cohesion.</li>
         </ol>
         <h1 id="discussion">Discussion</h1>
+        <p>I managed to fix 18 out of 21 found issues in Scrutinizer. The ones that remain unfixed does not involve my own classes.</p>
+        <p>I decided against creating test cases for controller classes even though PHP Metrics suggested creating controller test cases, as those kinds of test are a bit more involved and I need to prioritize what to put my time and effort into. Thus, code coverage through testing remains around 17-18% in total counting  controller classes. However, excluding those, code coverage is either 100% or above 70% for the remaining classes containing game logic and such.</p>
+        <p>I managed to split the JSONController class into two, where I put all routes focusing on the Deck and Card class in a JSONDeckController class instead. PHP Metrics still considers the JSONDeckController a "God object" with lack of cohesion (LCOM = 6) and uses many public methods (8, excluding getters and setters) and external classes. Not much can be done there, as it needs plenty of public methods and external classes, however I did manage to split the original controller class so it is still a lot better than before.</p>
+        <p>Given time, I would put more effort into creating mock objects to test controller classes. Putting controlles classes to unit testing would be an interesting part of the testing elements of this course in the future.</p>
+        <h3>Conclusions</h3>
+        <p>Using certain metrics is a valuable tool in keeping your code nice and clean. For example, many of the issues noted by Scrutinizer were due to edge cases that generally do not happen but are still somewhat likely to happen. Instead of generating nasty errors for the user, they are handled with more care behind the scenes whilst keeping the user informed if needed but still happy and on the page.</p>
+        <p>In larges collaborative projects, clean code with high maintainability is certainly cost-effective and time-efficient. Involving certain metrics as general guidelines within a project is a good way to keep a certain level and everyone on the same page, thus making it easier to involve new team members during e.g. staff changes.</p>
 </div>
 {% endblock %}

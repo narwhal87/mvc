@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2024-05-12 10:52:19        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2024-05-16 08:10:43        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -289,6 +289,11 @@
         ]
     },
     {
+        "name": "\\Exception",
+        "size": 3000,
+        "relations": []
+    },
+    {
         "name": "\\App\\Card\\DeckJoker",
         "size": 3000,
         "relations": [
@@ -353,9 +358,6 @@
             "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
             "\\Symfony\\Component\\HttpFoundation\\Response",
             "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
-            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-            "\\App\\Card\\Deck",
-            "\\Symfony\\Component\\HttpFoundation\\Request",
             "\\App\\Repository\\LibraryRepository"
         ]
     },
@@ -365,9 +367,12 @@
         "relations": []
     },
     {
-        "name": "\\Symfony\\Component\\HttpFoundation\\Request",
+        "name": "\\App\\Controller\\MetricsController",
         "size": 3000,
-        "relations": []
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response"
+        ]
     },
     {
         "name": "\\App\\Controller\\LuckyController",
@@ -396,6 +401,11 @@
         ]
     },
     {
+        "name": "\\Symfony\\Component\\HttpFoundation\\Request",
+        "size": 3000,
+        "relations": []
+    },
+    {
         "name": "\\App\\Controller\\ProductController",
         "size": 3000,
         "relations": [
@@ -421,11 +431,6 @@
         ]
     },
     {
-        "name": "\\Exception",
-        "size": 3000,
-        "relations": []
-    },
-    {
         "name": "\\App\\Controller\\LibraryController",
         "size": 3000,
         "relations": [
@@ -435,6 +440,18 @@
             "\\Symfony\\Component\\HttpFoundation\\Request",
             "\\App\\Entity\\Library",
             "\\App\\Repository\\LibraryRepository"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\JSONDeckController",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
+            "\\App\\Card\\Deck",
+            "\\Symfony\\Component\\HttpFoundation\\Request"
         ]
     },
     {

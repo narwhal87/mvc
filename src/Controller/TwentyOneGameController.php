@@ -79,7 +79,7 @@ class TwentyOneGameController extends AbstractController
         $game = new Game();
         $asdf = $request->request->all();
         $session->set("slask", "slask");
-        
+
         if (array_key_exists("draw", $asdf) && !$session->get("finished")) {
             $game->playerDraw($session);
             $sum = $session->get("player_score");
