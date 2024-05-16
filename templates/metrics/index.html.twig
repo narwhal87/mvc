@@ -35,7 +35,7 @@
         <ul>
             <li>10 violations (6 class violations and 4 package violations); 8 warnings and 2 errors (blob/god objects).</li>
             <li>Some classes have a high comment weight (above 20% which should be addressed).</li>
-            <img src="/img/PhpMetrics maintainability _ complexity.png">
+            <img src="{{ asset('img/PhpMetrics maintainability _ complexity.png') }}">
             <li>Some classes (red circles) have a high cyclomatic complexity and might be hard to maintain.</li>
             <li>Generally, the class JSONController is highly efferent and could be scrutinized to find improvements in the code. JSONController also lacks cohesion, with a LCOM value of 10 and high volume.</li>
             <li>However, most of the code is within top-rated limits and there is no immediate call for code refactoring. The violations should be dealt with with the aim of making it zero.</li>
@@ -49,7 +49,7 @@
         <a href="https://scrutinizer-ci.com/g/narwhal87/mvc/?branch=main"><img src="https://scrutinizer-ci.com/g/narwhal87/mvc/badges/build.png?b=main"></a>
         <a href="https://scrutinizer-ci.com/g/narwhal87/mvc/?branch=main"><img src="https://scrutinizer-ci.com/g/narwhal87/mvc/badges/code-intelligence.svg?b=main"></a>
         <p>Scrutinizer suggests that the code coverage is low, and the reason for this is as aforementioned because of untested controller classes.</p>
-        <img src="/img/code_coverage.png">
+        <img src="{{ asset('img/code_coverage.png') }}">
         <p>21 issues (10 major).</p>
         <p>No Cyclomatic Complexity above 20 and no size alarmingly larger than around 200 SLOC.</p>
         <p>All classes A rated.</p>
