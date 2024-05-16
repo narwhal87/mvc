@@ -105,8 +105,14 @@ class JSONDeckController extends AbstractController
         SessionInterface $session
     ): Response {
         //if isset
-        $num = $request->request->get('num');
+        $num = $request->get('num');
         $deck = $session->get("deck");
+
+        if (empty($deck)) {
+            $deck = new Deck();
+            $session->set("deck", $deck);
+        }
+
         $cards = $deck->draw($num);
 
         $session->set("deck", $deck);
@@ -122,9 +128,25 @@ class JSONDeckController extends AbstractController
     ): Response {
         //if isset
         $deck = $session->get("deck");
+        $sizeDeck = $deck->getSizeOfDeck();
+        if ($num > $sizeDeck) {
+            $response = new JsonResponse(['error' => 'Not enough cards left']);
+            $response->setEncodingOptions(
+                $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+            );
+            return $response;
+        }
         $cards = [];
-        foreach ($session->get("cards") as $card) {
-            $cards[] = $card->getCard();
+        if (empty($session->get("cards"))) {
+            for ($i = 0; $i < $num; $i++) {
+                $card = $deck->draw()[0];
+                $cards[] = $card->getCard();
+            }
+        } else {
+            foreach ($session->get("cards") as $card) {
+                $cards[] = $card->getCard();
+            }
+            $session->set("cards", null);
         }
         $data = [
             'cards' => $cards,

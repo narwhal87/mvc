@@ -87,7 +87,7 @@ class LibraryController extends AbstractController
     ): Response {
         $books = $libraryRepository->findAll();
 
-        if (!$books) {
+        if (empty($books)) {
             throw $this->createNotFoundException(
                 'The library is empty.'
             );

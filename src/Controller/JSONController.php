@@ -69,7 +69,7 @@ class JSONController extends AbstractController
 
         $response = new JsonResponse($data);
         $response->setEncodingOptions(
-            JSON_UNESCAPED_UNICODE | $response->getEncodingOptions(JSON_UNESCAPED_UNICODE) | JSON_PRETTY_PRINT
+            JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
         );
         return $response;
     }
