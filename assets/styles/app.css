@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather|Source+Sans+Pro');
-
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@100..900&display=swap');
 body {
     margin: 0 auto;
     max-width: 1200px;
     background-color: rgb(238, 242, 243);
     font-family: 'Merriweather', sans-serif;
+}
+
+body.blackjack {
+    background-color: rgb(25, 138, 12);
+}
+
+body.blackjack h1 {
+    margin: 10px 0;
 }
 
 header {
@@ -22,12 +30,58 @@ header {
     width: 100%
 }
 
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+    font-size: 2.0rem;
+    /* background-color: $background-nav; */
+    /* color: $font-nav; */
+    padding: 8px 10px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    background-color: rgb(10, 115, 26);
+    border-radius: 2px;
+}
+
+.nav-blackjack {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.nav-blackjack a:visited {
+    color: black;
+}
+
+.nav-blackjack a {
+    text-decoration: underline;
+}
+
+.blackjack, .nav-blackjack {
+    font-family: "Big Shoulders Stencil Display", sans-serif;
+}
+
+nav.burger {
+    display: none;
+    font-size: 1.6rem;
+    color: black;
+}
+
+nav.burger a:visited {
+    color: black;
+}
+
 .main.blackjack {
     color: rgba(255, 255, 255, 0.933);
     padding: 15px;
     width: 100%;
     margin-left: 2px;
     margin-right: 2px;
+    font-size: 1.2rem;
+}
+
+form.gameform label {
+    font-size: 1rem;
 }
 
 div.hands {
@@ -35,7 +89,7 @@ div.hands {
     border: 3px solid rgb(15, 87, 118);
     display: inline-block;
     width: 100px;
-    height: 300px;
+    height: 360px;
     vertical-align: top;
     background:rgb(174, 210, 225, 0.6);
     padding: 5px;
@@ -99,6 +153,10 @@ img.docs {
 
 .container {
     display: flex;
+}
+
+nav ul {
+    display: inline;
 }
 
 nav li {

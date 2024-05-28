@@ -166,7 +166,7 @@ class GameBJ extends Game
                 // $session->set("finished", true);
                 // Increment "active" one step
                 // Reset game variables of active is not hand_num
-                $session->set("slask", "Player got fat");
+                // $session->set("slask", "Player got fat");
                 $this->incrementActiveHand($session);
                 $this->resetGameVariables($session);
                 $cards = [];

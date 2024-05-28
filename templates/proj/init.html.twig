@@ -4,18 +4,16 @@
 
 {% block body %}
 <div class="blackjack">
-    <h1>Blackjack</h1>
+    <h1>Blackjack project</h1>
     <div class="container">
-        <div class="aside">
         
-        </div>
             
-        <div class="main">
+        <div class="main blackjack">
             <pre>Choose to play up to 3 hands at the same time.</pre>
 
             <form method="post" action="{{ path('init_blackjack_post') }}" class="game_form">
                 <label for="num_hands">Select number of hands</label>
-                <input type="number" name="num_hands" id="num_hands" max="3" min="1"><br>
+                <input type="number" name="num_hands" id="num_hands" max="3" min="1" value="1"><br>
                 <button class="button red" type="submit" name="init" id="init" value="init">Start game</button>
             </form>
             

@@ -114,22 +114,34 @@ class ProjController extends AbstractController
             $sum = $session->get("player_score");
 
             if ($sum > 21) {
+                if ($session->get("active") == $session->get("num_hands")) {
+                    $session->set("finished", true);
+                } else {
+                    $this->addFlash(
+                        'alert',
+                        'You got fat!'
+                    );
+                }
+            }
+
+            if ($sum == 0) { // if draw, $sum is non-zero
                 // $session->set("finished", true);
-                $this->addFlash(
-                    'alert',
-                    'You got fat and lost the game! Hit Shuffle to restart!'
-                );
+                if ($session->get("active") == $session->get("num_hands")) {
+                    $session->set("finished", true);
+                } else {
+                    $this->addFlash(
+                        'alert',
+                        'You got fat!'
+                    );
+                }
             }
         } elseif (array_key_exists("shuffle", $asdf)) {
             return $this->redirectToRoute('init_blackjack_get');
         } elseif (array_key_exists("stop", $asdf) && !$session->get("finished") && $session->get("player_score") != 0) {
 
-            // if active hand = num_hands then bank draw
-            // if active hand < num_hands then continue
-
             // This happens if the player stops a hand
             if ($session->get("active") < $session->get("num_hands") - 1) {
-                $session->set("slask", "player stopped");
+                // $session->set("slask", "player stopped");
 
                 $game->incrementActiveHand($session);
                 $game->resetGameVariables($session);
@@ -143,21 +155,32 @@ class ProjController extends AbstractController
             }
 
             // This happens if the player stops on last hand
-            $session->set("slask", "bank draw");
+            // $session->set("slask", "bank draw");
             $game->bankDraw($session);
             $session->set("finished", true);
             $sum = $session->get("bank_score");
             if ($sum < 22 && $sum >= max($session->get("score"))) {
                 $this->addFlash(
                     'alert',
-                    'The bank won, you lost! Hit Shuffle to restart.'
+                    'The bank won, you lost! Press Restart'
                 );
             } else {
                 $this->addFlash(
                     'notice',
-                    'You won the game! Hit Shuffle to restart.'
+                    'You won the game! Press Restart.'
                 );
             }
+        } elseif (array_key_exists("stop", $asdf) && $session->get("player_score") == 0) {
+            $text = "";
+            if ($session->get("active") == 0) {
+                $text = 'You have to draw at least one card before you stop.';
+            } elseif ($session->get("active") == 1) {
+                $text = 'You still have available hands. Draw a card!';
+            }
+            $this->addFlash(
+                'alert',
+                $text
+            );
         }
         //Set new session data
         $session->set("asdf", $asdf);

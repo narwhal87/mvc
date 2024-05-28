@@ -12,12 +12,14 @@
             {{ encore_entry_script_tags('app') }}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
+        <script src="https://kit.fontawesome.com/19518c5ef8.js" crossorigin="anonymous"></script>
     </head>
-    <body>
-        <header class="site-header" style="background-image: url({{ asset('img/background.jpg') }})">
+    <body class="blackjack">
+        <header class="site-header" style="background-image: url({{ asset('img/background2.jpeg') }}); background-position: 0% 25%;">
             <span class="site-title">My Symfony Site</span>
         </header>
-        <nav>
+        <button class="open-button" id="nav-button"><i class="fa fa-bars"></i></button>
+        <nav class="burger" id="nav-burger">
             <ul>
                 <li><a href="{{ path('home') }}">Home</a></li>
                 <li><a href="{{ path('about') }}">About</a></li>
@@ -33,6 +35,24 @@
                 <li><a href="{{ path('proj_home') }}">Blackjack</a></li>
             </ul>
         </nav>
+        <nav class="nav-blackjack">
+            <ul>
+                <li><a href="{{ path('proj_home') }}">Rules</a></li>
+                <li><a href="{{ path('session') }}">Session</a></li>
+            </ul>
+        </nav>
+        <script language="javascript">
+            const navButton = document.getElementById("nav-button");
+
+            navButton.addEventListener("click", (event) => {
+                event.preventDefault();
+                if (document.getElementById("nav-burger").style.display === "inline") {
+                    document.getElementById("nav-burger").style.display = "none";
+                } else {
+                    document.getElementById("nav-burger").style.display = "inline";
+                }
+            });
+        </script>
         {% block body %}
         {# Here is the content rendered from the twig templates extending this base class #}
         {% endblock %}
