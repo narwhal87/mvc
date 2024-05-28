@@ -1,69 +1,39 @@
-{% extends "base.html.twig" %}
+{% extends "baseproj.html.twig" %}
 
 {% block title %}Blackjack{% endblock %}
 
 {% block body %}
 <div class="blackjack">
-    <h1>Blackjack</h1>
+    <h1 align="center">Blackjack</h1>
     <div class="container">
-        <div class="aside">
-        
-        </div>
             
-        <div class="main blackjack">
-            <h3>flash msg</h3>
+        <div class="main blackjack" style="background: url('../img/pokertable.jpg');">
+            
             {{ include('flash.html.twig') }}
-
+            {# {% if (slask) %}
             <h3>var_dumps</h3>
             
             <pre>slask: {{ slask }}</pre>
+            {% endif %} #}
             
-
-            {# <table>
-                <tr>
-                    {% for card in deck|slice(0,13) %}
-                    <td>{{ card }}</td>
-                    {% endfor %}
-                </tr>
-                <tr>
-                    {% for card in deck|slice(13,13) %}
-                    <td>{{ card }}</td>
-                    {% endfor %}
-                </tr>
-                <tr>
-                    {% for card in deck|slice(26,13) %}
-                    <td>{{ card }}</td>
-                    {% endfor %}
-                </tr>
-                <tr>
-                    {% for card in deck|slice(39,13) %}
-                    <td>{{ card }}</td>
-                    {% endfor %}
-                </tr>
-                <tr>
-                    {% for card in deck|slice(52,13) %}
-                    <td>{{ card }}</td>
-                    {% endfor %}
-                </tr>
-                <tr>
-                    {% for card in deck|slice(65,13) %}
-                    <td>{{ card }}</td>
-                    {% endfor %}
-                </tr>
-            </table> #}
-
-            <h3>Game</h3>
             <div class="gametable">
-                <div class="dealer" style="display:block; width:200px; background:rgb(174, 182, 225);">DEALER
-                    {% for card in bank %}
-                        <pre>{{ card }}</pre>
-                    {% endfor %}
+                
+                <div class="dealer">
+                    <h3>DEALER</h3>
+                    <div class="hands">
+                        <h4>Dealer hand</h4>
+                        <span>Score: {{ bank_score }}</span>
+                        {% for card in bank %}
+                            <pre>{{ card }}</pre>
+                        {% endfor %}
+                    </div>
                 </div>
                 <div class="player">
-                    PLAYER HANDS
+                    <h3>PLAYER HANDS</h3>
                     {% for hand in hands %}
-                        <div class="hands" style="display:block; width:200px; background:rgb(174, 225, 174);">
+                        <div class="hands">
                             <h4>Hand #{{ loop.index }}</h4>
+                            <span>Score: {{ score[loop.index - 1] }}</span>
                             {% for card in hand %}
                             <pre>{{ card }}</pre>
                             {% endfor %}

@@ -1,4 +1,4 @@
-{% extends "base.html.twig" %}
+{% extends "baseproj.html.twig" %}
 
 {% block title %}Blackjack{% endblock %}
 
@@ -11,12 +11,12 @@
         <li><a href="{{ path('doc') }}">Play a game of Blackjack</a></li>
     </ul>
 </div>
-<div class="main blackjack">
+<div class="main">
     <pre>{{ hello }}</pre>
-    <h3>Rules</h3>
-    <ol>
-        <li><div class="btn-grad"><a href="{{ url('init_blackjack_get') }}">Start Blackjack</a></div></li>
-    </ol>
+    {{ include('proj/rules.html.twig') }}
+    
+    <div class="btn-grad"><a href="{{ url('init_blackjack_get') }}">Start Blackjack</a></div>
+    
 </div>
 </div>
 </div>

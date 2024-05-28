@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    background: url('../images/background.jpg');
+    background: url('../images/background.jpg'); /* ta väck? */
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -20,6 +20,57 @@ h1 {
 header {
     height: 200px;
     width: 100%
+}
+
+.main.blackjack {
+    color: rgba(255, 255, 255, 0.933);
+    padding: 15px;
+    width: 100%;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+div.hands {
+    margin: 5px;
+    border: 3px solid rgb(15, 87, 118);
+    display: inline-block;
+    width: 100px;
+    height: 300px;
+    vertical-align: top;
+    background:rgb(174, 210, 225, 0.6);
+    padding: 5px;
+}
+
+div.dealer, div.player {
+    display: inline-block;
+    vertical-align: top;
+}
+
+div.gametable {
+    margin-bottom: 10px;
+}
+
+div.dealer {
+    padding-right: 10px;
+    border-right: 3px solid white;
+}
+
+div.player {
+    margin-left: 10px;
+}
+
+.dealer .hands {
+    background:rgba(225, 174, 174, 0.6);
+}
+
+div.hands pre {
+    color: rgba(242, 255, 0);
+    font-size: 1.2rem;
+}
+
+div.player > h4, div.dealer > h4 {
+    display: block;
+    color: black;
 }
 
 .aside {

@@ -1,26 +1,7 @@
-{% extends "base.html.twig" %}
 
-{% block title %}Blackjack{% endblock %}
-
-{% block body %}
-<div class="blackjack">
-<h1>Blackjack project</h1>
-<div class="container">
-<div class="aside">
-    <ul>
-        <li><a href="{{ path('doc') }}">Play a game of Blackjack</a></li>
-    </ul>
-</div>
-<div class="main blackjack">
-    <pre>{{ hello }}</pre>
     <h3>Rules</h3>
     <ol>
         <li><pre>Draw cards and try to get a sum of 21.</pre></li>
         <li><pre>If the sum is larger than 21, you lose.</pre></li>
         <li><pre>If the bank is equal to or larger than your sum, you lose.</pre></li>
-        <li><div class="btn-grad"><a href="{{ url('init_game') }}">Start 21</a></div></li>
     </ol>
-</div>
-</div>
-</div>
-{% endblock %}

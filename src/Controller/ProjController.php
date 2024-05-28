@@ -91,6 +91,7 @@ class ProjController extends AbstractController
             "hands" => $session->get("hands"),
             "num_hands" => $session->get("num_hands"),
             "deck" => $session->get("deck")->getDeckAsJSON(),
+            "score" => $session->get("score"),
         ];
         // var_dump($data);
 
@@ -121,7 +122,7 @@ class ProjController extends AbstractController
             }
         } elseif (array_key_exists("shuffle", $asdf)) {
             return $this->redirectToRoute('init_blackjack_get');
-        } elseif (array_key_exists("stop", $asdf) && !$session->get("finished")) {
+        } elseif (array_key_exists("stop", $asdf) && !$session->get("finished") && $session->get("player_score") != 0) {
 
             // if active hand = num_hands then bank draw
             // if active hand < num_hands then continue
@@ -146,7 +147,7 @@ class ProjController extends AbstractController
             $game->bankDraw($session);
             $session->set("finished", true);
             $sum = $session->get("bank_score");
-            if ($sum < 22 && $sum >= $session->get("player_score")) {
+            if ($sum < 22 && $sum >= max($session->get("score"))) {
                 $this->addFlash(
                     'alert',
                     'The bank won, you lost! Hit Shuffle to restart.'

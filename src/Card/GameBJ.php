@@ -41,6 +41,7 @@ class GameBJ extends Game
         $session->set("hands", []);   // NEW all player hands, array of "cards" arrays
         $session->set("num_hands", 1);   // NEW number of hands
         $session->set("active", 0);   // NEW active hand as index 
+        $session->set("score", []);
     }
 
     public function incrementActiveHand($session) {
@@ -86,6 +87,7 @@ class GameBJ extends Game
         $session->set("hands", []);   // NEW all player hands, array of "cards" arrays
         $session->set("num_hands", $numHands);   // NEW number of hands
         $session->set("active", 0);   // NEW active hand as index 
+        $session->set("score", []);
     }
 
     // /**
@@ -120,6 +122,7 @@ class GameBJ extends Game
         $deck = $session->get("deck"); // Get Deck from session
         $cards = $session->get("cards"); // Array with player cards as str "<suit><rank>"
         $hands = $session->get("hands"); // Array with $cards[]
+        $score = $session->get("score");
 
         //If not fat
         if ($sum < 21 && !$session->get("finished")) {
@@ -139,6 +142,12 @@ class GameBJ extends Game
             
             $sum += $this->updateSum($newCardRank, $session);
             $session->set("player_score", $sum);
+            if (array_key_exists($active, $score)) {
+                $score[$active] = $sum;
+            } else {
+                $score[] = $sum;
+            }
+            $session->set("score", $score);
         }
 
         // If fat
@@ -146,6 +155,12 @@ class GameBJ extends Game
             $ace = $session->get("ace");
             if ($ace > 0) {
                 $session->set("player_score", $sum - 10);
+                if (array_key_exists($active, $score)) {
+                    $score[$active] = $sum - 10;
+                } else {
+                    $score[] = $sum - 10;
+                }
+                $session->set("score", $score);
                 $session->set("ace", $ace - 1);
             } else {
                 // $session->set("finished", true);
@@ -173,7 +188,7 @@ class GameBJ extends Game
         $session->set("ace", 0);
         if ($session->get("player_score") < 22 && $session->get("bank_score") == 0) {
             $sum = 0;
-            while ($sum < 18 && $sum < $session->get("player_score")) {
+            while ($sum < 18 && $sum < max($session->get("score"))) {
                 $newCard = $deck->draw()[0];
                 $newCardRank = $newCard->getRank();
                 $bank[] = $newCard->getCard();

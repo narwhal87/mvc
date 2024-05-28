@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('img/glider.svg') }}">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+        <header class="site-header" style="background-image: url({{ asset('img/background.jpg') }})">
+            <span class="site-title">My Symfony Site</span>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="{{ path('home') }}">Home</a></li>
+                <li><a href="{{ path('about') }}">About</a></li>
+                <li><a href="{{ path('report') }}">Report</a></li>
+                <li><a href="{{ path('lucky_number') }}">Lucky number</a></li>
+                <li><a href="{{ path('api_index') }}" target="_blank">API</a></li>
+                <li><a href="{{ path('pig_start') }}">PIG</a></li>
+                <li><a href="{{ path('card') }}">Card</a></li>
+                <li><a href="{{ path('session') }}">Session</a></li>
+                <li><a href="{{ path('game') }}">21</a></li>
+                <li><a href="{{ path('library') }}">Library</a></li>
+                <li><a href="{{ path('metrics') }}">Metrics</a></li>
+                <li><a href="{{ path('proj_home') }}">Blackjack</a></li>
+            </ul>
+        </nav>
+        {% block body %}
+        {# Here is the content rendered from the twig templates extending this base class #}
+        {% endblock %}
+        <footer class="site-footer">
+            <span>Copyright © Alf Tore Pettersson alpt22</span>
+        </footer>
+    </body>
+</html>
