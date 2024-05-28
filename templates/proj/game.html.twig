@@ -1,0 +1,108 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Blackjack{% endblock %}
+
+{% block body %}
+<div class="blackjack">
+    <h1>Blackjack</h1>
+    <div class="container">
+        <div class="aside">
+        
+        </div>
+            
+        <div class="main blackjack">
+            <h3>flash msg</h3>
+            {{ include('flash.html.twig') }}
+
+            <h3>var_dumps</h3>
+            
+            <pre>slask: {{ slask }}</pre>
+            
+
+            {# <table>
+                <tr>
+                    {% for card in deck|slice(0,13) %}
+                    <td>{{ card }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for card in deck|slice(13,13) %}
+                    <td>{{ card }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for card in deck|slice(26,13) %}
+                    <td>{{ card }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for card in deck|slice(39,13) %}
+                    <td>{{ card }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for card in deck|slice(52,13) %}
+                    <td>{{ card }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for card in deck|slice(65,13) %}
+                    <td>{{ card }}</td>
+                    {% endfor %}
+                </tr>
+            </table> #}
+
+            <h3>Game</h3>
+            <div class="gametable">
+                <div class="dealer" style="display:block; width:200px; background:rgb(174, 182, 225);">DEALER
+                    {% for card in bank %}
+                        <pre>{{ card }}</pre>
+                    {% endfor %}
+                </div>
+                <div class="player">
+                    PLAYER HANDS
+                    {% for hand in hands %}
+                        <div class="hands" style="display:block; width:200px; background:rgb(174, 225, 174);">
+                            <h4>Hand #{{ loop.index }}</h4>
+                            {% for card in hand %}
+                            <pre>{{ card }}</pre>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            {# {% for card2 in cards %}
+            <pre>{{ card2 }}</pre>
+            {% endfor %} #}
+            {# <pre>Poäng: {{ player_score }}</pre>
+            {% for message in app.flashes('alert') %}
+                <div class="flash-alert">
+                {{ message }}
+                </div>
+            {% endfor %}
+            {% for message in app.flashes('notice') %}
+                <div class="flash-notice win">
+                {{ message }}
+                </div>
+            {% endfor %}
+
+            <h3>Bank drawn cards</h3>
+            {% for card2 in bank %}
+            <pre>{{ card2 }}</pre>
+            {% endfor %}
+            <pre>Poäng: {{ bank_score }}</pre> #}
+            
+
+            <form method="post" action="{{ path('gameplan_blackjack_post') }}" class="game_form">
+                <button class="button green" type="submit" name="draw" id="draw" value="draw">Draw a card</button>
+                <button class="button blue" type="submit" name="shuffle" id="shuffle" value="shuffle">Shuffle</button>
+                <button class="button red" type="submit" name="stop" id="stop" value="stop">Stop</button>
+            </form>
+
+            <p>Image by <a href="https://www.freepik.com/free-vector/flat-design-poker-table-background_94956216.htm#query=blackjack%20background&position=41&from_view=keyword&track=ais_user&uuid=46ce0d04-09fe-46b1-baee-6f48c85abeac">Freepik</a></p>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

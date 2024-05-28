@@ -5,7 +5,6 @@ body {
     max-width: 1200px;
     background-color: rgb(238, 242, 243);
     font-family: 'Merriweather', sans-serif;
-    
 }
 
 header {
@@ -24,9 +23,6 @@ header {
 }
 
 .aside {
-    /* position: sticky; */
-    /* top: 0;
-    left: 0; */
     float: left;
     width: 25%;
     border-right: 2px solid black;
