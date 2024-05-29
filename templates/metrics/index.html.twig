@@ -62,7 +62,7 @@
             <li>Increase code coverage by implementing test cases for some controller classes. The aim is 70% code coverage overall.</li>
             <li>(DONE) Remove unneccesary comments.</li>
             <li>(DONE) Trim JSONController if possible to decrease cyclomatic complexity and low cohesion.</li>
-            <li>Shrink the model GameBJ class and split into smaller </li>
+            <li>Shrink the model GameBJ class and split into smaller private methods.</li>
         </ol>
         <h1 id="discussion">Discussion</h1>
         <p>I managed to fix 18 out of 21 found issues in Scrutinizer. The ones that remain unfixed does not involve my own classes.</p>
@@ -73,6 +73,6 @@
         <p>The GameBJ model class also lacks cohesion and is complex, but this is expected by a large game controlling class. This model can be improved by moving some control statements to smaller private methods. To keep a high level of code coverage, this would call for a more involved unit testing with mock objects and this is the reason why some class methods are public and not private or protected in its current state.</p>
         <h3>Conclusions</h3>
         <p>Using certain metrics is a valuable tool in keeping your code nice and clean. For example, many of the issues noted by Scrutinizer were due to edge cases that generally do not happen but are still somewhat likely to happen. Instead of generating nasty errors for the user, they are handled with more care behind the scenes whilst keeping the user informed if needed but still happy and on the page.</p>
-        <p>In larges collaborative projects, clean code with high maintainability is certainly cost-effective and time-efficient. Involving certain metrics as general guidelines within a project is a good way to keep a certain level and everyone on the same page, thus making it easier to involve new team members during e.g. staff changes.</p>
+        <p>In larger collaborative projects, clean code with high maintainability is certainly cost-effective and time-efficient. Involving certain metrics as general guidelines within a project is a good way to keep a certain level and everyone on the same page, thus making it easier to involve new team members during e.g. staff changes.</p>
 </div>
 {% endblock %}
