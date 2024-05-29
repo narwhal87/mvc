@@ -41,15 +41,12 @@ class ProjController extends AbstractController
         $game = new GameBJ();
         $numHands = $request->get('num_hands');
         $game->initGame($session, intval($numHands));
-        // var_dump($numHands);
-        // echo "<script>console.log('Debug Objects: " . $numHands . "' );</script>";"deck" => $deck->getDeckAsJSON()
+        
         $this->addFlash(
             'notice',
             'Deck has been initialized and stored in session.'
         );
         $data = [
-            // "hello" => "Hello and welcome!",
-            // "card" => "asdf",
             "cards" => $session->get("cards"),
             "asdf" => $session->get("asdf"),
             "slask" => $session->get("slask"),
@@ -66,7 +63,8 @@ class ProjController extends AbstractController
     }
 
     #[Route("/proj/init", name: "init_blackjack_get", methods: "GET")]
-    public function initBlackJackGET(): Response {
+    public function initBlackJackGET(): Response
+    {
 
         return $this->render('proj/init.html.twig');
     }
@@ -110,25 +108,41 @@ class ProjController extends AbstractController
             $game->playerDraw($session);
             $sum = $session->get("player_score");
 
+            if ($sum == 21) {
+                $this->addFlash(
+                    'notice',
+                    'You got Blackjack! You are advised to click on Stop...'
+                );
+                // $session->set("finished", true);
+            }
+
             if ($sum > 21) {
-                if ($session->get("active") == $session->get("num_hands")) {
+                if ($session->get("active") == $session->get("num_hands") - 1) {
                     $session->set("finished", true);
-                } else {
                     $this->addFlash(
                         'alert',
-                        'You got fat!'
+                        'You got fat and lost the game!'
+                    );
+                } else {
+                    $session->set("active", $session->get("active") + 1);
+                    $session->set("finished", false);
+                    $this->addFlash(
+                        'alert',
+                        'You got fat, but you still have hands available. Draw more cards.'
                     );
                 }
             }
 
             if ($sum == 0) { // if draw, $sum is non-zero
-                // $session->set("finished", true);
                 if ($session->get("active") == $session->get("num_hands")) {
-                    $session->set("finished", true);
+                    $this->addFlash(
+                        'alert',
+                        'You got fat and lost the game!'
+                    );
                 } else {
                     $this->addFlash(
                         'alert',
-                        'You got fat!'
+                        'You got fat, but you still have hands available. Draw more cards.'
                     );
                 }
             }
@@ -138,8 +152,6 @@ class ProjController extends AbstractController
 
             // This happens if the player stops a hand
             if ($session->get("active") < $session->get("num_hands") - 1) {
-                // $session->set("slask", "player stopped");
-
                 $game->incrementActiveHand($session);
                 $game->resetGameVariables($session);
                 $session->set("cards", []);
@@ -152,11 +164,18 @@ class ProjController extends AbstractController
             }
 
             // This happens if the player stops on last hand
-            // $session->set("slask", "bank draw");
             $game->bankDraw($session);
             $session->set("finished", true);
             $sum = $session->get("bank_score");
-            if ($sum < 22 && $sum >= max($session->get("score"))) {
+            $dum = $session->get("score");
+            $handsScore = [];
+            foreach ($dum as &$value) {
+                if ($value < 22) {
+                    $handsScore[] = $value;
+                }
+            }
+
+            if ($sum < 22 && $sum >= max($handsScore)) {
                 $this->addFlash(
                     'alert',
                     'The bank won, you lost! Press Restart'
@@ -171,8 +190,10 @@ class ProjController extends AbstractController
             $text = "";
             if ($session->get("active") == 0) {
                 $text = 'You have to draw at least one card before you stop.';
-            } elseif ($session->get("active") == 1) {
+            } elseif ($session->get("active") < $session->get("num_hands") - 1) {
                 $text = 'You still have available hands. Draw a card!';
+            } else {
+                $text = 'The game is already finished. Press Restart to play again.';
             }
             $this->addFlash(
                 'alert',

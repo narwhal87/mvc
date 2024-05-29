@@ -46,8 +46,6 @@ class Deck
         }
         if (is_array($randKey)) {
             rsort($randKey);
-        } else {
-            throw new \Exception('Variable $randKey is not of type array');
         }
         // rsort($randKey);
         $sizeRandKey = sizeof($randKey);

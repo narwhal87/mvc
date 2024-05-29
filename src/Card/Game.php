@@ -30,6 +30,8 @@ class Game
 
     /**
      * Returns score of player
+     * 
+     * @return Player Score
      */
     public function getPlayerScore()
     {
@@ -38,6 +40,8 @@ class Game
 
     /**
      * Returns score of bank
+     * 
+     * @return int Dealer Score
      */
     public function getBankScore()
     {
@@ -46,6 +50,8 @@ class Game
 
     /**
      * Initializes new deck and necessary session variables
+     * 
+     * @param object $session Symfony session variable
      */
     public function initGame($session)
     {
@@ -61,6 +67,9 @@ class Game
 
     /**
      * Takes a Card object and returns the value addet to a sum
+     * 
+     * @param string $newCardRank rank of card (1 is 10)
+     * @param object $session Symfony session variable
      */
     public function updateSum($newCardRank, $session)
     {
@@ -126,16 +135,26 @@ class Game
                 $bank[] = $newCard->getCard();
                 $sum += $this->updateSum($newCardRank, $session);
                 if ($sum > 17) {
-                    $ace = $session->get("ace");
-                    if ($ace > 0) {
-                        $sum -= 10;
-                        $session->set("ace", $ace - 1);
-                    }
+                    $sum += $this->decreaseAce($session);
                 }
             }
             $session->set("deck", $deck);
             $session->set("bank", $bank);
             $session->set("bank_score", $sum);
         }
+    }
+
+    /**
+     * Method decreaseAce subtracts number of aces from session game variable 
+     * 
+     * @param object $session Symfony session variable
+     */
+    public function decreaseAce($session) {
+        $ace = $session->get("ace");
+        if ($ace > 0) {
+            $session->set("ace", $ace - 1);
+            return -10;
+        }
+        return 0;
     }
 }

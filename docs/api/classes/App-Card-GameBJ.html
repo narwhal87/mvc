@@ -113,8 +113,11 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    Game
+    GameBJ
 
+        <span class="phpdocumentor-element__extends">
+        extends <a href="classes/App-Card-Game.html"><abbr title="\App\Card\Game">Game</abbr></a>
+    </span>
     
             <div class="phpdocumentor-element__package">
             in package
@@ -132,23 +135,38 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Game.php"><a href="files/src-card-game.html"><abbr title="src/Card/Game.php">Game.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/GameBJ.php"><a href="files/src-card-gamebj.html"><abbr title="src/Card/GameBJ.php">GameBJ.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">14</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">This class contains the 21 Game logic
-This is also a DocBlock comment</p>
+            <p class="phpdocumentor-summary">Blackjack game logic</p>
 
 
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/App-Card-GameBJ.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Alf Tore Pettersson (alpt22@student.bth.se)</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
 
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/App-Card-Game.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/App-Card-GameBJ.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -162,7 +180,7 @@ This is also a DocBlock comment</p>
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/App-Card-Game.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/App-Card-GameBJ.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
@@ -173,25 +191,25 @@ This is also a DocBlock comment</p>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/App-Card-Game.html#property_bank">$bank</a>
+    <a href="classes/App-Card-GameBJ.html#property_bank">$bank</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/App-Card-Game.html#property_bankScore">$bankScore</a>
+    <a href="classes/App-Card-GameBJ.html#property_bankScore">$bankScore</a>
     <span>
                         &nbsp;: int|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/App-Card-Game.html#property_player">$player</a>
+    <a href="classes/App-Card-GameBJ.html#property_player">$player</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/App-Card-Game.html#property_playerScore">$playerScore</a>
+    <a href="classes/App-Card-GameBJ.html#property_playerScore">$playerScore</a>
     <span>
                         &nbsp;: int|null            </span>
 </dt>
@@ -200,23 +218,24 @@ This is also a DocBlock comment</p>
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/App-Card-Game.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/App-Card-GameBJ.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Card-Game.html#method___construct">__construct()</a>
+    <a href="classes/App-Card-GameBJ.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Constructor of Game class.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Card-Game.html#method_bankDraw">bankDraw()</a>
+    <a href="classes/App-Card-GameBJ.html#method_bankDraw">bankDraw()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Bank draw card turn until game is over</dd>
+<dd>Bank draw card turn until game is over
+Method from Game overriden</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Card-Game.html#method_decreaseAce">decreaseAce()</a>
@@ -240,18 +259,33 @@ This is also a DocBlock comment</p>
 <dd>Returns score of player</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Card-Game.html#method_initGame">initGame()</a>
+    <a href="classes/App-Card-GameBJ.html#method_incrementActiveHand">incrementActiveHand()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>incrementActiveHand increments which hand is active for the player.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Card-GameBJ.html#method_initGame">initGame()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Initializes new deck and necessary session variables</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Card-Game.html#method_playerDraw">playerDraw()</a>
+    <a href="classes/App-Card-GameBJ.html#method_playerDraw">playerDraw()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Player draw a new card from deck and store deck in session</dd>
+<dd>Player draw a new card from deck and store deck in session
+Method overridden from Game class</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Card-GameBJ.html#method_resetGameVariables">resetGameVariables()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>resetGameVariables between each playable hand transition</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Card-Game.html#method_updateSum">updateSum()</a>
@@ -271,7 +305,7 @@ This is also a DocBlock comment</p>
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/App-Card-Game.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/App-Card-GameBJ.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -316,13 +350,13 @@ This is also a DocBlock comment</p>
 >
     <h4 class="phpdocumentor-element__name" id="property_bank">
         $bank
-        <a href="classes/App-Card-Game.html#property_bank" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/App-Card-GameBJ.html#property_bank" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Game.php"><a href="files/src-card-game.html"><abbr title="src/Card/Game.php">Game.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/GameBJ.php"><a href="files/src-card-gamebj.html"><abbr title="src/Card/GameBJ.php">GameBJ.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">18</span>
 
@@ -349,13 +383,13 @@ This is also a DocBlock comment</p>
 >
     <h4 class="phpdocumentor-element__name" id="property_bankScore">
         $bankScore
-        <a href="classes/App-Card-Game.html#property_bankScore" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/App-Card-GameBJ.html#property_bankScore" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Game.php"><a href="files/src-card-game.html"><abbr title="src/Card/Game.php">Game.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/GameBJ.php"><a href="files/src-card-gamebj.html"><abbr title="src/Card/GameBJ.php">GameBJ.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">19</span>
 
@@ -382,13 +416,13 @@ This is also a DocBlock comment</p>
 >
     <h4 class="phpdocumentor-element__name" id="property_player">
         $player
-        <a href="classes/App-Card-Game.html#property_player" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/App-Card-GameBJ.html#property_player" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Game.php"><a href="files/src-card-game.html"><abbr title="src/Card/Game.php">Game.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/GameBJ.php"><a href="files/src-card-gamebj.html"><abbr title="src/Card/GameBJ.php">GameBJ.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">16</span>
 
@@ -415,13 +449,13 @@ This is also a DocBlock comment</p>
 >
     <h4 class="phpdocumentor-element__name" id="property_playerScore">
         $playerScore
-        <a href="classes/App-Card-Game.html#property_playerScore" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/App-Card-GameBJ.html#property_playerScore" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Game.php"><a href="files/src-card-game.html"><abbr title="src/Card/Game.php">Game.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/GameBJ.php"><a href="files/src-card-gamebj.html"><abbr title="src/Card/GameBJ.php">GameBJ.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">17</span>
 
@@ -444,7 +478,7 @@ This is also a DocBlock comment</p>
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/App-Card-Game.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/App-Card-GameBJ.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -455,13 +489,13 @@ This is also a DocBlock comment</p>
 >
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
-        <a href="classes/App-Card-Game.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/App-Card-GameBJ.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Game.php"><a href="files/src-card-game.html"><abbr title="src/Card/Game.php">Game.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/GameBJ.php"><a href="files/src-card-gamebj.html"><abbr title="src/Card/GameBJ.php">GameBJ.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 
@@ -487,21 +521,22 @@ This is also a DocBlock comment</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_bankDraw">
         bankDraw()
-        <a href="classes/App-Card-Game.html#method_bankDraw" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/App-Card-GameBJ.html#method_bankDraw" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Game.php"><a href="files/src-card-game.html"><abbr title="src/Card/Game.php">Game.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/GameBJ.php"><a href="files/src-card-gamebj.html"><abbr title="src/Card/GameBJ.php">GameBJ.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">124</span>
+    <span class="phpdocumentor-element-found-in__line">151</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Bank draw card turn until game is over</p>
+        <p class="phpdocumentor-summary">Bank draw card turn until game is over
+Method from Game overriden</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">bankDraw</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">bankDraw</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -510,10 +545,12 @@ This is also a DocBlock comment</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$session</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">object</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Symfony session variable</p>
+</section>
+
             </dd>
             </dl>
 
@@ -651,23 +688,23 @@ This is also a DocBlock comment</p>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_initGame">
-        initGame()
-        <a href="classes/App-Card-Game.html#method_initGame" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_incrementActiveHand">
+        incrementActiveHand()
+        <a href="classes/App-Card-GameBJ.html#method_incrementActiveHand" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Game.php"><a href="files/src-card-game.html"><abbr title="src/Card/Game.php">Game.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/GameBJ.php"><a href="files/src-card-gamebj.html"><abbr title="src/Card/GameBJ.php">GameBJ.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">56</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initializes new deck and necessary session variables</p>
+        <p class="phpdocumentor-summary">incrementActiveHand increments which hand is active for the player.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">initGame</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">incrementActiveHand</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -695,23 +732,23 @@ This is also a DocBlock comment</p>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_playerDraw">
-        playerDraw()
-        <a href="classes/App-Card-Game.html#method_playerDraw" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_initGame">
+        initGame()
+        <a href="classes/App-Card-GameBJ.html#method_initGame" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Game.php"><a href="files/src-card-game.html"><abbr title="src/Card/Game.php">Game.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/GameBJ.php"><a href="files/src-card-gamebj.html"><abbr title="src/Card/GameBJ.php">GameBJ.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Player draw a new card from deck and store deck in session</p>
+        <p class="phpdocumentor-summary">Initializes new deck and necessary session variables</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">playerDraw</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">initGame</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$numHands</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">1</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -720,10 +757,127 @@ This is also a DocBlock comment</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$session</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">object</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Symfony session variable</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$numHands</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">1</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>number of playable hands chosen by player</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/App-Card-GameBJ.html#method_initGame#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">description</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Initializes new deck and necessary session variables
+Overrides inherited Game class method</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_playerDraw">
+        playerDraw()
+        <a href="classes/App-Card-GameBJ.html#method_playerDraw" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/GameBJ.php"><a href="files/src-card-gamebj.html"><abbr title="src/Card/GameBJ.php">GameBJ.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">80</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Player draw a new card from deck and store deck in session
+Method overridden from Game class</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">playerDraw</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$session</span>
+                : <span class="phpdocumentor-signature__argument__return-type">object</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Symfony session variable</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_resetGameVariables">
+        resetGameVariables()
+        <a href="classes/App-Card-GameBJ.html#method_resetGameVariables" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/GameBJ.php"><a href="files/src-card-gamebj.html"><abbr title="src/Card/GameBJ.php">GameBJ.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">45</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">resetGameVariables between each playable hand transition</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">resetGameVariables</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$session</span>
+                : <span class="phpdocumentor-signature__argument__return-type">object</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Symfony session variable</p>
+</section>
+
             </dd>
             </dl>
 
@@ -790,7 +944,7 @@ This is also a DocBlock comment</p>
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Card/Game.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Card/GameBJ.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -889,32 +1043,34 @@ This is also a DocBlock comment</p>
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                            <li><a href="classes/App-Card-Game.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/App-Card-Game.html#toc-methods">Methods</a></li>
+                                                            <li><a href="classes/App-Card-GameBJ.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/App-Card-GameBJ.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/App-Card-Game.html#property_deck">$deck<a href="classes/App-Card-Game.html"></li>
-                                                    <li><a href="classes/App-Card-Game.html#property_bank">$bank<a href="classes/App-Card-Game.html"></li>
-                                                    <li><a href="classes/App-Card-Game.html#property_bankScore">$bankScore<a href="classes/App-Card-Game.html"></li>
-                                                    <li><a href="classes/App-Card-Game.html#property_player">$player<a href="classes/App-Card-Game.html"></li>
-                                                    <li><a href="classes/App-Card-Game.html#property_playerScore">$playerScore<a href="classes/App-Card-Game.html"></li>
+                                                    <li><a href="classes/App-Card-Game.html#property_deck">$deck<a href="classes/App-Card-GameBJ.html"></li>
+                                                    <li><a href="classes/App-Card-GameBJ.html#property_bank">$bank<a href="classes/App-Card-GameBJ.html"></li>
+                                                    <li><a href="classes/App-Card-GameBJ.html#property_bankScore">$bankScore<a href="classes/App-Card-GameBJ.html"></li>
+                                                    <li><a href="classes/App-Card-GameBJ.html#property_player">$player<a href="classes/App-Card-GameBJ.html"></li>
+                                                    <li><a href="classes/App-Card-GameBJ.html#property_playerScore">$playerScore<a href="classes/App-Card-GameBJ.html"></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/App-Card-Game.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/App-Card-Game.html#method_bankDraw">bankDraw()</a></li>
+                                            <li><a href="classes/App-Card-GameBJ.html#method___construct">__construct()</a></li>
+                                            <li><a href="classes/App-Card-GameBJ.html#method_bankDraw">bankDraw()</a></li>
                                             <li><a href="classes/App-Card-Game.html#method_decreaseAce">decreaseAce()</a></li>
                                             <li><a href="classes/App-Card-Game.html#method_getBankScore">getBankScore()</a></li>
                                             <li><a href="classes/App-Card-Game.html#method_getPlayerScore">getPlayerScore()</a></li>
-                                            <li><a href="classes/App-Card-Game.html#method_initGame">initGame()</a></li>
-                                            <li><a href="classes/App-Card-Game.html#method_playerDraw">playerDraw()</a></li>
+                                            <li><a href="classes/App-Card-GameBJ.html#method_incrementActiveHand">incrementActiveHand()</a></li>
+                                            <li><a href="classes/App-Card-GameBJ.html#method_initGame">initGame()</a></li>
+                                            <li><a href="classes/App-Card-GameBJ.html#method_playerDraw">playerDraw()</a></li>
+                                            <li><a href="classes/App-Card-GameBJ.html#method_resetGameVariables">resetGameVariables()</a></li>
                                             <li><a href="classes/App-Card-Game.html#method_updateSum">updateSum()</a></li>
                                     </ul>
             </li>
@@ -935,7 +1091,7 @@ This is also a DocBlock comment</p>
     </section>
 </section>
         </div>
-        <a href="classes/App-Card-Game.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/App-Card-GameBJ.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

@@ -5,6 +5,9 @@ namespace App\Card;
 use App\Card\Card;
 use Exception;
 
+/**
+ * Blackjack specific deck with four equal decks to draw cards from.
+ */
 class DeckBJ extends Deck
 {
     protected $deck = [];
@@ -17,10 +20,5 @@ class DeckBJ extends Deck
         for ($i = 0; $i < 4; $i++) {
             parent::__construct();
         }
-
-        // var_dump($this->deck);
     }
-
-    
-
 }
