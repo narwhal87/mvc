@@ -33,6 +33,12 @@ class ProjController extends AbstractController
         return $this->render('proj/about.html.twig');
     }
 
+    #[Route("/proj/docs", name: "proj_docs")]
+    public function projDocs(): Response
+    {
+        return $this->redirectToRoute('metrics');
+    }
+
     #[Route("/proj/init", name: "init_blackjack_post", methods: "POST")]
     public function initBlackJackPOST(
         SessionInterface $session,
