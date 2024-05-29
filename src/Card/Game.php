@@ -31,7 +31,6 @@ class Game
     /**
      * Returns score of player
      * 
-     * @return Player Score
      */
     public function getPlayerScore()
     {
@@ -41,7 +40,6 @@ class Game
     /**
      * Returns score of bank
      * 
-     * @return int Dealer Score
      */
     public function getBankScore()
     {
