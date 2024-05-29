@@ -28,7 +28,7 @@ class ProjController extends AbstractController
     }
 
     #[Route("/proj/about", name: "proj_about")]
-    public function docs(): Response
+    public function projAbout(): Response
     {
         return $this->render('proj/about.html.twig');
     }

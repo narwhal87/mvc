@@ -33,7 +33,7 @@
         <h1 id="phpmetrics">PHP Metrics</h1>
         Here is an analysis of the source code of this page, and three points where improvement could be made.
         <ul>
-            <li>10 violations (6 class violations and 4 package violations); 8 warnings and 2 errors (blob/god objects).</li>
+            <li>13 violations (9 class violations and 4 package violations); 10 warnings and 3 errors (blob/god objects and complext methods).</li>
             <li>Some classes have a high comment weight (above 20% which should be addressed).</li>
             <img src="{{ asset('img/PhpMetrics maintainability _ complexity.png') }}">
             <li>Some classes (red circles) have a high cyclomatic complexity and might be hard to maintain.</li>
@@ -41,7 +41,8 @@
             <li>However, most of the code is within top-rated limits and there is no immediate call for code refactoring. The violations should be dealt with with the aim of making it zero.</li>
         </ul>
         <h3>Summary</h3>
-        <p>It is evident that JSONController needs some address, however it is not without reason that this class lacks cohesion as it is supposed to integrate many different API calls from different types of classes. Such a controller class also needs a lot of routes, and to break the controller class into two changes nothing.</p>
+        <p>One class violation, in the ProjController class, is "too complex method code". This is understandable, as it utilizes many different flash messages and calls for many control statements to be made. Flash messages can only be done in the controller class, with all other game logic in the GameBJ class. However, with a CC of 21, the ProjController class is considered at small or moderate risk.</p>
+        <p>It is evident that JSONDeckController needs some address, however it is not without reason that this class lacks cohesion as it is supposed to integrate many different API calls from different types of classes. Such a controller class also needs a lot of routes, and to break the controller class into two changes nothing.</p>
         <p>The main issue will still be to see if the JSONController can be trimmed somewhat. I will also see if I can fix the violations and get rid of unnecessary non-LLOC.</p>
         <h1 id="scrutinizer">Scrutinizer</h1>
         <a href="https://scrutinizer-ci.com/g/narwhal87/mvc/?branch=main"><img src="https://scrutinizer-ci.com/g/narwhal87/mvc/badges/quality-score.png?b=main"></a>
@@ -49,24 +50,27 @@
         <a href="https://scrutinizer-ci.com/g/narwhal87/mvc/?branch=main"><img src="https://scrutinizer-ci.com/g/narwhal87/mvc/badges/build.png?b=main"></a>
         <a href="https://scrutinizer-ci.com/g/narwhal87/mvc/?branch=main"><img src="https://scrutinizer-ci.com/g/narwhal87/mvc/badges/code-intelligence.svg?b=main"></a>
         <p>Scrutinizer suggests that the code coverage is low, and the reason for this is as aforementioned because of untested controller classes.</p>
-        <img src="{{ asset('img/code_coverage.png') }}">
+        <img src="{{ asset('img/code_coverage3.png') }}">
         <p>21 issues (10 major).</p>
-        <p>No Cyclomatic Complexity above 20 and no size alarmingly larger than around 200 SLOC.</p>
+        <p>One class with Cyclomatic Complexity above 20 (21 though) and no size alarmingly larger than around 200 SLOC.</p>
         <p>All classes A rated.</p>
         <h3>Summary</h3>
         <p>Code coverage for controller classes is low, and there are some issues.</p>
         <h1 id="improvements">Improvements</h1>
         <ol>
-            <li>Decrease the number of issues mentioned in Scrutinizer.</li>
+            <li>(DONE)Decrease the number of issues mentioned in Scrutinizer.</li>
             <li>Increase code coverage by implementing test cases for some controller classes. The aim is 70% code coverage overall.</li>
-            <li>Remove unneccesary comments.</li>
-            <li>Trim JSONController if possible to decrease cyclomatic complexity and low cohesion.</li>
+            <li>(DONE) Remove unneccesary comments.</li>
+            <li>(DONE) Trim JSONController if possible to decrease cyclomatic complexity and low cohesion.</li>
+            <li>Shrink the model GameBJ class and split into smaller </li>
         </ol>
         <h1 id="discussion">Discussion</h1>
         <p>I managed to fix 18 out of 21 found issues in Scrutinizer. The ones that remain unfixed does not involve my own classes.</p>
         <p>I decided against creating test cases for controller classes even though PHP Metrics suggested creating controller test cases, as those kinds of test are a bit more involved and I need to prioritize what to put my time and effort into. Thus, code coverage through testing remains around 17-18% in total counting  controller classes. However, excluding those, code coverage is either 100% or above 70% for the remaining classes containing game logic and such.</p>
         <p>I managed to split the JSONController class into two, where I put all routes focusing on the Deck and Card class in a JSONDeckController class instead. PHP Metrics still considers the JSONDeckController a "God object" with lack of cohesion (LCOM = 6) and uses many public methods (8, excluding getters and setters) and external classes. Not much can be done there, as it needs plenty of public methods and external classes, however I did manage to split the original controller class so it is still a lot better than before.</p>
         <p>Given time, I would put more effort into creating mock objects to test controller classes. Putting controlles classes to unit testing would be an interesting part of the testing elements of this course in the future.</p>
+        <p>The ProjController class is bloated, somewhat complex and lacks cohesion. Having shrunk the size by keeping control statements involving flash messages, and moving other game logic to the GameBJ model, this is surely not the best but it is majorly improved.</p>
+        <p>The GameBJ model class also lacks cohesion and is complex, but this is expected by a large game controlling class. This model can be improved by moving some control statements to smaller private methods. To keep a high level of code coverage, this would call for a more involved unit testing with mock objects and this is the reason why some class methods are public and not private or protected in its current state.</p>
         <h3>Conclusions</h3>
         <p>Using certain metrics is a valuable tool in keeping your code nice and clean. For example, many of the issues noted by Scrutinizer were due to edge cases that generally do not happen but are still somewhat likely to happen. Instead of generating nasty errors for the user, they are handled with more care behind the scenes whilst keeping the user informed if needed but still happy and on the page.</p>
         <p>In larges collaborative projects, clean code with high maintainability is certainly cost-effective and time-efficient. Involving certain metrics as general guidelines within a project is a good way to keep a certain level and everyone on the same page, thus making it easier to involve new team members during e.g. staff changes.</p>
