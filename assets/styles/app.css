@@ -55,6 +55,7 @@ header {
 
 .nav-blackjack a {
     text-decoration: underline;
+    color: black;
 }
 
 .blackjack, .nav-blackjack {

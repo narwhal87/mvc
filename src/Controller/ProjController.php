@@ -27,14 +27,11 @@ class ProjController extends AbstractController
         return $this->render('proj/index.html.twig', $data);
     }
 
-    // #[Route("/game/doc", name: "doc")]
-    // public function docs(): Response
-    // {
-    //     $data = [
-    //         "hello" => "This is the documentation route",
-    //     ];
-    //     return $this->render('game/docs.html.twig', $data);
-    // }
+    #[Route("/proj/about", name: "proj_about")]
+    public function docs(): Response
+    {
+        return $this->render('proj/about.html.twig');
+    }
 
     #[Route("/proj/init", name: "init_blackjack_post", methods: "POST")]
     public function initBlackJackPOST(
@@ -44,7 +41,7 @@ class ProjController extends AbstractController
         $game = new GameBJ();
         $numHands = $request->get('num_hands');
         $game->initGame($session, intval($numHands));
-        var_dump($numHands);
+        // var_dump($numHands);
         // echo "<script>console.log('Debug Objects: " . $numHands . "' );</script>";"deck" => $deck->getDeckAsJSON()
         $this->addFlash(
             'notice',
